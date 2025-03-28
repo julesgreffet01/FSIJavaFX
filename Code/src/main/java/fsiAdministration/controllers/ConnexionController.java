@@ -37,7 +37,6 @@ public class ConnexionController implements Initializable {
 
         System.out.println(login);
 
-
         UtilisateurDAO userDAO = new UtilisateurDAO();
         Utilisateur user = userDAO.find(login, mdp);
 

@@ -19,6 +19,10 @@
 
 -possibilité d une meilleur gestion de l affichage des etus grace a la partie commenter
 
+-pas de dao ni de bo pour les sections
+
+-pas de pages pour les sections
+
 
 évolutions : 
 

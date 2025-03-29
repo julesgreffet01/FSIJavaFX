@@ -1,16 +1,26 @@
-- liste etudiant : "c" est null
+- liste etudiant pas de bouttons retour
+-liste etu le nom des donnes affiche ne sont pas bonnes
 
-- ajout etudiant les sections sont en dure
+- ajout etudiant les sections sont en dure et ne fonctionnent pas ca met toujours le 1
 - ajout etu le efface fait retour
-- ajout etu retour fait une erreur connection refused
+- ajout etu retour c est le create
 - ajout etu le enreg c est le effacer
 - la page d ajout n enleve pas l ancienne fenetre
 
-- liste section : "c" est null
 - ajout section ne fait rien
 
 - le accueil ne renvoie pas vers l accueil
 
+- liste section renvoie vers liste etu
+
+- le insert de l etudiant enreg aussi l id alors que c est du serial. 
+
+-dans le constructeur de l etudiant y a pas la section
+
+-possibilité d une meilleur gestion de l affichage des etus grace a la partie commenter
+
+
+évolutions : 
 
 pour quitter pas de message preventif
 mettre toutes les donne de connexions dans un fichier a pars

@@ -8,6 +8,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -25,29 +27,29 @@ public class ListeEtudiantController extends MenuController implements Initializ
     public void initialize(URL location, ResourceBundle resources) {
 
 
-        EtudiantDAO etudDAO = new EtudiantDAO();
-        List<Etudiant> mesEtud = etudDAO.findAll();
-        ObservableList<Etudiant> mesEtudOL= FXCollections.observableArrayList(mesEtud);
-        tcNomEtud.setCellValueFactory(cellData -> cellData.getValue().nomEtudiantProperty());
-        tcPrenomEtud.setCellValueFactory(cellData -> cellData.getValue().prenomEtudiantProperty());
+//        EtudiantDAO etudDAO = new EtudiantDAO();
+//        List<Etudiant> mesEtud = etudDAO.findAll();
+//        ObservableList<Etudiant> mesEtudOL= FXCollections.observableArrayList(mesEtud);
+//        tcNomEtud.setCellValueFactory(cellData -> cellData.getValue().nomEtudiantProperty());
+//        tcPrenomEtud.setCellValueFactory(cellData -> cellData.getValue().prenomEtudiantProperty());
+//
+//        tvEtudiants.setItems(mesEtudOL);
 
-        tvEtudiants.setItems(mesEtudOL);
 
-
-
+        tcNomEtud.setCellValueFactory(new PropertyValueFactory<>("nomEtudiant"));
+        tcPrenomEtud.setCellValueFactory(new PropertyValueFactory<>("prenomEtudiant"));
+        ObservableList<Etudiant> data = getUserList();
+        tvEtudiants.setItems(data);
     }
 
-/*       tcNomEtud.setCellValueFactory(new PropertyValueFactory<>("nomEtudiant"));
-        tcPrenomEtud.setCellValueFactory(new PropertyValueFactory<>("prenomEtudiant"));
-    ObservableList<Etudiant> data = getUserList();
-        tvEtudiants.setItems(data);
     private ObservableList<Etudiant> getUserList() {
 
-        Etudiant etud1 = new Etudiant(1,"Goudet","Magali");
+        EtudiantDAO etudDAO = new EtudiantDAO();
+        List<Etudiant> mesEtud = etudDAO.findAll();
 
-        ObservableList<Etudiant> list = FXCollections.observableArrayList(etud1);
+        ObservableList<Etudiant> list = FXCollections.observableArrayList(mesEtud);
         return list;
-    }*/
+    }
 
 
 

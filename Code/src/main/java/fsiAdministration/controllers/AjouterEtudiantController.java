@@ -49,8 +49,6 @@ public class AjouterEtudiantController extends MenuController implements Initial
     public void bEnregistrerClick(ActionEvent event) {
         tfNomEtud.clear();
         tfPrenomEtud.clear();
-
-
     }
 
     @FXML

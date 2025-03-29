@@ -18,7 +18,8 @@ public class EtudiantDAO extends DAO<Etudiant>{
             id++;
             obj.setIdEtudiant(id);
             Class.forName("org.postgresql.Driver");
-            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5433/FSI_GestionAdmin","postgres","postgreSQL");
+            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","cannelle01");
+//            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5433/FSI_GestionAdmin","postgres","postgreSQL");
             String sql = "Insert into Etudiant(idEtudiant, nomEtudiant, prenomEtudiant, idSection) values (?,?,?,?);";
             PreparedStatement statement = connect.prepareStatement(sql);
             statement.setInt(1,obj.getIdEtudiant());
@@ -46,7 +47,8 @@ public class EtudiantDAO extends DAO<Etudiant>{
 
         try {
             Class.forName("org.postgresql.Driver");
-            Connection  connect = DriverManager.getConnection("jdbc:postgresql://localhost:5433/FSI_GestionAdmin","postgres","postgreSQL");
+            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","cannelle01");
+//            Connection  connect = DriverManager.getConnection("jdbc:postgresql://localhost:5433/FSI_GestionAdmin","postgres","postgreSQL");
 
             ResultSet result = connect.createStatement().executeQuery("select max(idEtudiant) from Etudiant ");
             if(result.next()){
@@ -84,7 +86,8 @@ public class EtudiantDAO extends DAO<Etudiant>{
 
         try {
             Class.forName("org.postgresql.Driver");
-            Connection  connect = DriverManager.getConnection("jdbc:postgresql://localhost:5433/FSI_GestionAdmin","postgres","postgreSQL");
+            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","cannelle01");
+//            Connection  connect = DriverManager.getConnection("jdbc:postgresql://localhost:5433/FSI_GestionAdmin","postgres","postgreSQL");
 
             String sql = "SELECT * FROM etudiant";
             Statement ps = connect.createStatement();

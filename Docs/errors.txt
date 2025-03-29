@@ -1,0 +1,16 @@
+- liste etudiant : "c" est null
+
+- ajout etudiant les sections sont en dure
+- ajout etu le efface fait retour
+- ajout etu retour fait une erreur connection refused
+- ajout etu le enreg c est le effacer
+- la page d ajout n enleve pas l ancienne fenetre
+
+- liste section : "c" est null
+- ajout section ne fait rien
+
+- le accueil ne renvoie pas vers l accueil
+
+
+pour quitter pas de message preventif
+mettre toutes les donne de connexions dans un fichier a pars

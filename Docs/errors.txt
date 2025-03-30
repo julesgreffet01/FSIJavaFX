@@ -29,10 +29,16 @@
 
 évolutions : 
 
-pour quitter pas de message preventif
-mettre toutes les donne de connexions dans un fichier a pars
-gestion des eleves : modif/supp, consulter
-gestion des sections: consulter, modifier/supp
-gestions des cours: all
-connexion : pop up si pas connxion
-ajout etu: pop-up si infos pas ok
+-pour quitter pas de message preventif
+-mettre toutes les donne de connexions dans un fichier a pars
+-gestion des eleves : modif/supp, consulter
+-gestion des sections: consulter, modifier/supp
+-gestions des cours: all
+-connexion : pop up si pas connxion
+-ajout etu: pop-up si infos pas ok + ajouter la date de naissance
+-liste etu : on doit afficher la section
++table etu et bo etu mettre la date de naissance
+-liste section : voir le nb d etu inscrit
+-accueil : ajouter le nom de l uti
+-bdd : mettre un système de log pas sur la connexion et les actions des sections mais les actions des cours et des etus
+visuel : upgrade + mettre le logo sur toutes les pages

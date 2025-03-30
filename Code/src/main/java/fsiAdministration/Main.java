@@ -7,6 +7,5 @@ public class Main {
 
         MainApplication.launch(MainApplication.class);
 
-
     }
 }

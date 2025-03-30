@@ -7,15 +7,6 @@ public class Etudiant {
     private int idEtudiant;
     private SimpleStringProperty nomEtudiant;
     private SimpleStringProperty prenomEtudiant;
-
-    public int getIdSection() {
-        return idSection;
-    }
-
-    public void setIdSection(int idSection) {
-        this.idSection = idSection;
-    }
-
     private int idSection;
 
     public Etudiant(int idEtudiant, String nomEtudiant, String prenomEtudiant) {
@@ -23,6 +14,14 @@ public class Etudiant {
         this.nomEtudiant = new SimpleStringProperty(nomEtudiant);
         this.prenomEtudiant = new SimpleStringProperty(prenomEtudiant);
 
+    }
+
+    public int getIdSection() {
+        return idSection;
+    }
+
+    public void setIdSection(int idSection) {
+        this.idSection = idSection;
     }
 
     public int getIdEtudiant() {

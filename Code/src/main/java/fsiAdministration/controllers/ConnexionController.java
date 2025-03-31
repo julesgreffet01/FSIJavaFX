@@ -39,6 +39,7 @@ public class ConnexionController implements Initializable {
 
         UtilisateurDAO userDAO = new UtilisateurDAO();
         Utilisateur user = userDAO.find(login, mdp);
+        System.out.println(user);
         if (user != null) {
             showAccueil();
         }

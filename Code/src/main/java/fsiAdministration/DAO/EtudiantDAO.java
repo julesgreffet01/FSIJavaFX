@@ -14,18 +14,14 @@ public class EtudiantDAO extends DAO<Etudiant>{
     public boolean create(Etudiant obj) {
         boolean controle = false;
         try{
-            int id = lastId();
-            id++;
-            obj.setIdEtudiant(id);
             Class.forName("org.postgresql.Driver");
             Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","cannelle01");
 //            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5433/FSI_GestionAdmin","postgres","postgreSQL");
-            String sql = "Insert into Etudiant(idEtudiant, nomEtudiant, prenomEtudiant, idSection) values (?,?,?,?);";
+            String sql = "Insert into Etudiant(nomEtudiant, prenomEtudiant, idSection) values (?,?,?);";
             PreparedStatement statement = connect.prepareStatement(sql);
-            statement.setInt(1,obj.getIdEtudiant());
-            statement.setString(2,obj.getNomEtudiant());
-            statement.setString(3,obj.getPrenomEtudiant());
-            statement.setInt(4,1);
+            statement.setString(1,obj.getNomEtudiant());
+            statement.setString(2,obj.getPrenomEtudiant());
+            statement.setInt(3,obj.getIdSection());
 
             int rowsInserer = statement.executeUpdate();
             if (rowsInserer > 0) {
@@ -96,7 +92,8 @@ public class EtudiantDAO extends DAO<Etudiant>{
                 etud = new Etudiant(
                         rs.getInt("idEtudiant"),
                         rs.getString ("nomEtudiant"),
-                        rs.getString("prenomEtudiant")
+                        rs.getString("prenomEtudiant"),
+                        rs.getInt("idSection")
                         );
                 mesEtud.add(etud);
             }

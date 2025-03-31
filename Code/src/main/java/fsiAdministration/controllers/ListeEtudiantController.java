@@ -5,10 +5,16 @@ import fsiAdministration.DAO.EtudiantDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.List;
@@ -23,6 +29,11 @@ public class ListeEtudiantController extends MenuController implements Initializ
 
     @FXML
     private TableColumn<Etudiant, String> tcPrenomEtud;
+
+    @FXML
+    private Button bRetour;
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -49,6 +60,36 @@ public class ListeEtudiantController extends MenuController implements Initializ
 
         ObservableList<Etudiant> list = FXCollections.observableArrayList(mesEtud);
         return list;
+    }
+
+    @FXML
+    private void bRetourClick(){
+        // On fait le lien avec l'ecran actuelle
+        Stage stageP = (Stage) bRetour.getScene().getWindow();
+        //on ferme l'écran
+        stageP.close();
+
+
+//        try {
+//            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fsiAdministration/views/page_accueil.fxml"));
+//            Parent root = fxmlLoader.load();
+//
+//            AccueilController accueilController = fxmlLoader.getController();
+//
+//            // Créer une nouvelle fenêtre (Stage)
+//            Stage stage = new Stage();
+//            stage.setTitle("Liste etudiant");
+//            stage.setScene(new Scene(root));
+//
+//            // Configurer la fenêtre en tant que modal
+//            stage.initModality(Modality.APPLICATION_MODAL);
+//
+//            // Afficher la fenêtre et attendre qu'elle se ferme
+//            stage.show();
+//        }  catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
     }
 
 

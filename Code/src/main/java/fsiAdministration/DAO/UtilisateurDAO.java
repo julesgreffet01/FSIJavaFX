@@ -35,7 +35,6 @@ public class UtilisateurDAO extends DAO<Utilisateur>{
 
     public Utilisateur find(String login, String password) {
         Utilisateur user = new Utilisateur();
-
         try {
             Class.forName("org.postgresql.Driver");
             Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","cannelle01");
@@ -45,13 +44,15 @@ public class UtilisateurDAO extends DAO<Utilisateur>{
             String sql = "SELECT * FROM utilisateur WHERE loginUtilisateur =? and mdpUtilisateur=?";
             PreparedStatement ps = connect.prepareStatement(sql);
             ps.setString(1, login);
-            ps.setString(2, "mgo");
+            ps.setString(2, password);
             ResultSet result = ps.executeQuery();
             if(result.next()) {
                 user = new Utilisateur(
                         result.getInt("idutilisateur"),
-                        result.getString("loginutilisateur"),
+                        result.getString("mdputilisateur"),
                         result.getString("loginutilisateur"));
+            } else {
+                user = null;
             }
 
         } catch (SQLException e) {

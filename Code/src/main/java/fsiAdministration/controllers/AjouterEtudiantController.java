@@ -26,6 +26,7 @@ public class AjouterEtudiantController extends MenuController implements Initial
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         ObservableList<String> section = FXCollections.observableArrayList("section 1", "section 2");
         lvSectionEtud.setItems(section);
     }
@@ -37,6 +38,8 @@ public class AjouterEtudiantController extends MenuController implements Initial
         //on ferme l'écran
         stageP.close();
 
+
+
     }
 
     @FXML
@@ -46,8 +49,7 @@ public class AjouterEtudiantController extends MenuController implements Initial
         String y = tfPrenomEtud.getText();
         int z = 1;
 
-        Etudiant newEtud = new Etudiant(0,x,y);
-        newEtud.setIdSection(z);
+        Etudiant newEtud = new Etudiant(0,x,y,z);
 
         System.out.println(newEtud);
         EtudiantDAO etudDAO = new EtudiantDAO();

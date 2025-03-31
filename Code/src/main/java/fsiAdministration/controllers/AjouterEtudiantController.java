@@ -32,6 +32,16 @@ public class AjouterEtudiantController extends MenuController implements Initial
 
     @FXML
     public void bRetourClick(ActionEvent event) {
+        // On fait le lien avec l'ecran actuelle
+        Stage stageP = (Stage) bRetour.getScene().getWindow();
+        //on ferme l'écran
+        stageP.close();
+
+    }
+
+    @FXML
+    public void bEnregistrerClick(ActionEvent event) {
+
         String x = tfNomEtud.getText();
         String y = tfPrenomEtud.getText();
         int z = 1;
@@ -46,16 +56,8 @@ public class AjouterEtudiantController extends MenuController implements Initial
     }
 
     @FXML
-    public void bEnregistrerClick(ActionEvent event) {
+    public void bEffacerClick(ActionEvent event) {
         tfNomEtud.clear();
         tfPrenomEtud.clear();
-    }
-
-    @FXML
-    public void bEffacerClick(ActionEvent event) {
-        // On fait le lien avec l'ecran actuelle
-        Stage stageP = (Stage) bRetour.getScene().getWindow();
-        //on ferme l'écran
-        stageP.close();
     }
 }

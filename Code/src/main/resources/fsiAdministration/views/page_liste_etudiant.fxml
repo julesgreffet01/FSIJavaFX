@@ -38,8 +38,8 @@
                 </MenuBar>
                 <TableView fx:id="tvEtudiants" prefHeight="259.0" prefWidth="730.0">
                     <columns>
-                        <TableColumn fx:id="tcNomEtud" prefWidth="143.1999877691269" text="nomEtUd" />
-                        <TableColumn fx:id="tcPrenomEtud" prefWidth="147.99993896484375" text="pufff etudiant" />
+                        <TableColumn fx:id="tcNomEtud" prefWidth="143.1999877691269" text="Nom des étudiants" />
+                        <TableColumn fx:id="tcPrenomEtud" prefWidth="147.99993896484375" text="Prenom des étuidants" />
                     </columns>
                 </TableView>
          <Button fx:id="bRetour" mnemonicParsing="false" onAction="#bRetourClick" prefHeight="39.0" prefWidth="166.0" text="Retour" textFill="#024010">

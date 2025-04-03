@@ -13,16 +13,17 @@ public class DBManager {
 
     private static Connection connect;
 
-    public static Connection getInstance(){
-        if (connect ==null){
-            try{
+    public static Connection getInstance() {
+        if (connect == null) {
+            try {
                 Class.forName("org.postgresql.Driver");
-                connect = DriverManager.getConnection(url,user,pass);
+                connect = DriverManager.getConnection(url, user, pass);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             } catch (ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
-        } return connect;
+        }
+        return connect;
     }
 }

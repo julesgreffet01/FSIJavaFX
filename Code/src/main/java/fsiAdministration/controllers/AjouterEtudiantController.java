@@ -92,12 +92,17 @@ public class AjouterEtudiantController extends MenuController implements Initial
         System.out.println(newEtud);
         EtudiantDAO etudDAO = new EtudiantDAO();
         boolean controle = etudDAO.create(newEtud);
-        System.out.println(controle);
+        if(controle) {
+            tfNomEtud.clear();
+            tfPrenomEtud.clear();
+            lvSectionEtud.getSelectionModel().clearSelection();
+        }
     }
 
     @FXML
     public void bEffacerClick(ActionEvent event) {
         tfNomEtud.clear();
         tfPrenomEtud.clear();
+        lvSectionEtud.getSelectionModel().clearSelection();
     }
 }

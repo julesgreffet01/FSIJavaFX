@@ -70,25 +70,25 @@ public class ListeEtudiantController extends MenuController implements Initializ
         stageP.close();
 
 
-//        try {
-//            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fsiAdministration/views/page_accueil.fxml"));
-//            Parent root = fxmlLoader.load();
-//
-//            AccueilController accueilController = fxmlLoader.getController();
-//
-//            // Créer une nouvelle fenêtre (Stage)
-//            Stage stage = new Stage();
-//            stage.setTitle("Liste etudiant");
-//            stage.setScene(new Scene(root));
-//
-//            // Configurer la fenêtre en tant que modal
-//            stage.initModality(Modality.APPLICATION_MODAL);
-//
-//            // Afficher la fenêtre et attendre qu'elle se ferme
-//            stage.show();
-//        }  catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fsiAdministration/views/page_accueil.fxml"));
+            Parent root = fxmlLoader.load();
+
+            AccueilController accueilController = fxmlLoader.getController();
+
+            // Créer une nouvelle fenêtre (Stage)
+            Stage stage = new Stage();
+            stage.setTitle("Liste etudiant");
+            stage.setScene(new Scene(root));
+
+            // Configurer la fenêtre en tant que modal
+            stage.initModality(Modality.APPLICATION_MODAL);
+
+            // Afficher la fenêtre et attendre qu'elle se ferme
+            stage.show();
+        }  catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 

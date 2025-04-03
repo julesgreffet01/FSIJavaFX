@@ -90,6 +90,8 @@ public class MenuController {
 
     @FXML
     public void bAjouterEtudClick(ActionEvent event) {
+        Stage stageP = (Stage) ((MenuItem) event.getSource()).getParentPopup().getOwnerWindow();
+        stageP.close();
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fsiAdministration/views/page_ajout_etudiant.fxml"));
             Parent root = fxmlLoader.load();

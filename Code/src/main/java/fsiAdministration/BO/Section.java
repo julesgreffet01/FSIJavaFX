@@ -25,4 +25,9 @@ public class Section {
     public void setLibelleSection(String libelleSection) {
         this.libelleSection = libelleSection;
     }
+
+    @Override
+    public String toString() {
+        return this.libelleSection;
+    }
 }

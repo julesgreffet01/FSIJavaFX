@@ -15,7 +15,7 @@ public class EtudiantDAO extends DAO<Etudiant>{
         boolean controle = false;
         try{
             Class.forName("org.postgresql.Driver");
-            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","EfaZynWu");
+            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","cannelle01");
 //            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5433/FSI_GestionAdmin","postgres","postgreSQL");
             String sql = "Insert into Etudiant(nomEtudiant, prenomEtudiant, idSection) values (?,?,?);";
             PreparedStatement statement = connect.prepareStatement(sql);
@@ -43,7 +43,7 @@ public class EtudiantDAO extends DAO<Etudiant>{
 
         try {
             Class.forName("org.postgresql.Driver");
-            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","EfaZynWu");
+            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","cannelle01");
 //            Connection  connect = DriverManager.getConnection("jdbc:postgresql://localhost:5433/FSI_GestionAdmin","postgres","postgreSQL");
 
             ResultSet result = connect.createStatement().executeQuery("select max(idEtudiant) from Etudiant ");
@@ -82,7 +82,7 @@ public class EtudiantDAO extends DAO<Etudiant>{
 
         try {
             Class.forName("org.postgresql.Driver");
-            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","EfaZynWu");
+            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","cannelle01");
 //            Connection  connect = DriverManager.getConnection("jdbc:postgresql://localhost:5433/FSI_GestionAdmin","postgres","postgreSQL");
 
             String sql = "SELECT * FROM etudiant";

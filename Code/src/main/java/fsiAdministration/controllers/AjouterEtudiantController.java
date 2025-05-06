@@ -85,17 +85,19 @@ public class AjouterEtudiantController extends MenuController implements Initial
         String x = tfNomEtud.getText();
         String y = tfPrenomEtud.getText();
         Section selected = lvSectionEtud.getSelectionModel().getSelectedItem();
-        int z = selected.getIdSection();
 
-        Etudiant newEtud = new Etudiant(0,x,y,z);
 
-        System.out.println(newEtud);
-        EtudiantDAO etudDAO = new EtudiantDAO();
-        boolean controle = etudDAO.create(newEtud);
-        if(controle) {
-            tfNomEtud.clear();
-            tfPrenomEtud.clear();
-            lvSectionEtud.getSelectionModel().clearSelection();
+        if(x != null && y != null && selected != null) {
+            int z = selected.getIdSection();
+            Etudiant newEtud = new Etudiant(0,x,y,z);
+
+            EtudiantDAO etudDAO = new EtudiantDAO();
+            boolean controle = etudDAO.create(newEtud);
+            if(controle) {
+                tfNomEtud.clear();
+                tfPrenomEtud.clear();
+                lvSectionEtud.getSelectionModel().clearSelection();
+            }
         }
     }
 

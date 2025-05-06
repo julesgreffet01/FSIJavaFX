@@ -19,7 +19,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -98,6 +97,30 @@ public class AjouterEtudiantController extends MenuController implements Initial
                 tfPrenomEtud.clear();
                 lvSectionEtud.getSelectionModel().clearSelection();
             }
+        } else {
+            try {
+                // Charger le fichier FXML
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fsiAdministration/views/popup_ajout_etu.fxml"));
+                Parent root = fxmlLoader.load();
+
+
+                // Obtenir le contrôleur de la nouvelle fenetre
+                PopupEtuController popupEtuController = fxmlLoader.getController();
+
+                // Créer une nouvelle fenêtre (Stage)
+                Stage stage = new Stage();
+                stage.setTitle("Pop-up");
+                stage.setScene(new Scene(root));
+
+                // Configurer la fenêtre en tant que modal
+                stage.initModality(Modality.APPLICATION_MODAL);
+
+                // Afficher la fenêtre et attendre qu'elle se ferme
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
         }
     }
 

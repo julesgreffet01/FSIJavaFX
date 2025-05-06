@@ -1,7 +1,10 @@
 package fsiAdministration.controllers;
 
 import fsiAdministration.BO.Etudiant;
+import fsiAdministration.BO.Section;
 import fsiAdministration.DAO.EtudiantDAO;
+import fsiAdministration.DAO.SectionDAO;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -31,6 +34,9 @@ public class ListeEtudiantController extends MenuController implements Initializ
     private TableColumn<Etudiant, String> tcPrenomEtud;
 
     @FXML
+    private TableColumn<Etudiant, String> tcSection;
+
+    @FXML
     private Button bRetour;
 
 
@@ -45,8 +51,12 @@ public class ListeEtudiantController extends MenuController implements Initializ
 //        tcPrenomEtud.setCellValueFactory(cellData -> cellData.getValue().prenomEtudiantProperty());
 //
 //        tvEtudiants.setItems(mesEtudOL);
-
-
+        SectionDAO sectionDAO = new SectionDAO();
+        tcSection.setCellValueFactory(cellData -> {
+            int idSec = cellData.getValue().getIdSection();
+            Section sec = sectionDAO.find(idSec);
+            return new SimpleStringProperty(sec != null ? sec.getLibelleSection() : "Aucune section");
+        });
         tcNomEtud.setCellValueFactory(new PropertyValueFactory<>("nomEtudiant"));
         tcPrenomEtud.setCellValueFactory(new PropertyValueFactory<>("prenomEtudiant"));
         ObservableList<Etudiant> data = getUserList();

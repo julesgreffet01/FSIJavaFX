@@ -52,7 +52,6 @@ public class Etudiant {
         return nomEtudiant;
     }
 
-
     public SimpleStringProperty prenomEtudiantProperty() {
         return prenomEtudiant;
     }

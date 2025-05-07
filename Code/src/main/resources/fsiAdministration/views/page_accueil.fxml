@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fsiAdministration.controllers.AccueilController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fsiAdministration.controllers.AccueilController">
    <children>
       <VBox layoutX="-1.0" prefHeight="48.0" prefWidth="729.0">
          <children>
@@ -36,7 +36,7 @@
             </MenuBar>
          </children>
       </VBox>
-      <Label alignment="TOP_CENTER" layoutY="151.0" prefHeight="40.0" prefWidth="729.0" text="BIENVENUE" textFill="#024010">
+      <Label fx:id="bienvenue" alignment="TOP_CENTER" layoutY="151.0" prefHeight="40.0" prefWidth="729.0" text="BIENVENUE" textFill="#024010">
          <font>
             <Font name="Bell MT Bold" size="22.0" />
          </font>

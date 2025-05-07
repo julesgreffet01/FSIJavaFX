@@ -41,11 +41,11 @@ public class ConnexionController implements Initializable {
         Utilisateur user = userDAO.find(login, mdp);
         System.out.println(user);
         if (user != null) {
-            showAccueil();
+            showAccueil(login);
         }
     }
 
-    private void showAccueil(){
+    private void showAccueil(String name){
          Stage stageP = (Stage) bConnexion.getScene().getWindow();
          //on ferme l'écran
           stageP.close();
@@ -57,6 +57,7 @@ public class ConnexionController implements Initializable {
 
                 // Obtenir le contrôleur de la nouvelle fenetre
                 AccueilController accueilController = fxmlLoader.getController();
+                accueilController.setName(name);
 
                 // Créer une nouvelle fenêtre (Stage)
                 Stage stage = new Stage();

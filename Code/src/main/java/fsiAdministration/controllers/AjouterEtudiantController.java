@@ -13,12 +13,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -30,6 +33,9 @@ public class AjouterEtudiantController extends MenuController implements Initial
     private Button bRetour;
     @FXML
     private ListView<Section> lvSectionEtud ;
+
+    @FXML
+    private DatePicker datePickerNai;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -84,18 +90,22 @@ public class AjouterEtudiantController extends MenuController implements Initial
         String x = tfNomEtud.getText();
         String y = tfPrenomEtud.getText();
         Section selected = lvSectionEtud.getSelectionModel().getSelectedItem();
+        LocalDate dateNai = datePickerNai.getValue();
 
-
-        if(x != null && y != null && selected != null) {
+        if(x != null && y != null && selected != null && dateNai != null) {
             int z = selected.getIdSection();
-            Etudiant newEtud = new Etudiant(0,x,y,z);
+            Date sqlDate = Date.valueOf(dateNai);
+            Etudiant newEtud = new Etudiant(0,x,y,z, sqlDate);
 
             EtudiantDAO etudDAO = new EtudiantDAO();
+            System.out.println(newEtud.getDateNaiEtu());
+            System.out.println(sqlDate);
             boolean controle = etudDAO.create(newEtud);
             if(controle) {
                 tfNomEtud.clear();
                 tfPrenomEtud.clear();
                 lvSectionEtud.getSelectionModel().clearSelection();
+                datePickerNai.setValue(null);
             }
         } else {
             try {
@@ -129,5 +139,6 @@ public class AjouterEtudiantController extends MenuController implements Initial
         tfNomEtud.clear();
         tfPrenomEtud.clear();
         lvSectionEtud.getSelectionModel().clearSelection();
+        datePickerNai.setValue(null);
     }
 }

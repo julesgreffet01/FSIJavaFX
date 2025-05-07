@@ -2,6 +2,7 @@ package fsiAdministration.DAO;
 
 import fsiAdministration.BO.Etudiant;
 import fsiAdministration.BO.Utilisateur;
+import javafx.beans.property.SimpleStringProperty;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -17,11 +18,12 @@ public class EtudiantDAO extends DAO<Etudiant>{
             Class.forName("org.postgresql.Driver");
             Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","cannelle01");
 //            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5433/FSI_GestionAdmin","postgres","postgreSQL");
-            String sql = "Insert into Etudiant(nomEtudiant, prenomEtudiant, idSection) values (?,?,?);";
+            String sql = "Insert into Etudiant(nomEtudiant, prenomEtudiant, idSection, dateNai) values (?,?,?,?);";
             PreparedStatement statement = connect.prepareStatement(sql);
             statement.setString(1,obj.getNomEtudiant());
             statement.setString(2,obj.getPrenomEtudiant());
             statement.setInt(3,obj.getIdSection());
+            statement.setDate(4,obj.getDateNaiEtu());
 
             int rowsInserer = statement.executeUpdate();
             if (rowsInserer > 0) {
@@ -91,9 +93,10 @@ public class EtudiantDAO extends DAO<Etudiant>{
             while(rs.next()) {
                 etud = new Etudiant(
                         rs.getInt("idEtudiant"),
-                        rs.getString ("nomEtudiant"),
+                        rs.getString("nomEtudiant"),
                         rs.getString("prenomEtudiant"),
-                        rs.getInt("idSection")
+                        rs.getInt("idSection"),
+                        rs.getDate("DateNai")
                         );
                 mesEtud.add(etud);
             }

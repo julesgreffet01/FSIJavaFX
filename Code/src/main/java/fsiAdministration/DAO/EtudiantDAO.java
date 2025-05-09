@@ -16,10 +16,10 @@ public class EtudiantDAO extends DAO<Etudiant>{
         boolean controle = false;
         try{
             Class.forName("org.postgresql.Driver");
-            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","cannelle01");
+            //Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","cannelle01");
 //            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5433/FSI_GestionAdmin","postgres","postgreSQL");
             String sql = "Insert into Etudiant(nomEtudiant, prenomEtudiant, idSection, dateNai) values (?,?,?,?);";
-            PreparedStatement statement = connect.prepareStatement(sql);
+            PreparedStatement statement = this.connect.prepareStatement(sql);
             statement.setString(1,obj.getNomEtudiant());
             statement.setString(2,obj.getPrenomEtudiant());
             statement.setInt(3,obj.getIdSection());
@@ -45,10 +45,10 @@ public class EtudiantDAO extends DAO<Etudiant>{
 
         try {
             Class.forName("org.postgresql.Driver");
-            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","cannelle01");
+            //Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","cannelle01");
 //            Connection  connect = DriverManager.getConnection("jdbc:postgresql://localhost:5433/FSI_GestionAdmin","postgres","postgreSQL");
 
-            ResultSet result = connect.createStatement().executeQuery("select max(idEtudiant) from Etudiant ");
+            ResultSet result = this.connect.createStatement().executeQuery("select max(idEtudiant) from Etudiant ");
             if(result.next()){
                 controle = result.getInt(1);
             }
@@ -84,11 +84,11 @@ public class EtudiantDAO extends DAO<Etudiant>{
 
         try {
             Class.forName("org.postgresql.Driver");
-            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","cannelle01");
+            // Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","cannelle01");
 //            Connection  connect = DriverManager.getConnection("jdbc:postgresql://localhost:5433/FSI_GestionAdmin","postgres","postgreSQL");
 
             String sql = "SELECT * FROM etudiant";
-            Statement ps = connect.createStatement();
+            Statement ps = this.connect.createStatement();
             ResultSet rs = ps.executeQuery(sql);
             while(rs.next()) {
                 etud = new Etudiant(

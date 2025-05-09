@@ -16,8 +16,7 @@ public class EtudiantDAO extends DAO<Etudiant>{
         boolean controle = false;
         try{
             Class.forName("org.postgresql.Driver");
-            //Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","cannelle01");
-//            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5433/FSI_GestionAdmin","postgres","postgreSQL");
+
             String sql = "Insert into Etudiant(nomEtudiant, prenomEtudiant, idSection, dateNai) values (?,?,?,?);";
             PreparedStatement statement = this.connect.prepareStatement(sql);
             statement.setString(1,obj.getNomEtudiant());
@@ -45,8 +44,6 @@ public class EtudiantDAO extends DAO<Etudiant>{
 
         try {
             Class.forName("org.postgresql.Driver");
-            //Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","cannelle01");
-//            Connection  connect = DriverManager.getConnection("jdbc:postgresql://localhost:5433/FSI_GestionAdmin","postgres","postgreSQL");
 
             ResultSet result = this.connect.createStatement().executeQuery("select max(idEtudiant) from Etudiant ");
             if(result.next()){
@@ -84,8 +81,6 @@ public class EtudiantDAO extends DAO<Etudiant>{
 
         try {
             Class.forName("org.postgresql.Driver");
-            // Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","cannelle01");
-//            Connection  connect = DriverManager.getConnection("jdbc:postgresql://localhost:5433/FSI_GestionAdmin","postgres","postgreSQL");
 
             String sql = "SELECT * FROM etudiant";
             Statement ps = this.connect.createStatement();

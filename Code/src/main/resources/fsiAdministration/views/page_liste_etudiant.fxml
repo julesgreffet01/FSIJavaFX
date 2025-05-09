@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fsiAdministration.controllers.ListeEtudiantController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fsiAdministration.controllers.ListeEtudiantController">
     <children>
-        <VBox layoutX="-1.0" prefHeight="478.0" prefWidth="729.0">
+        <VBox layoutX="-1.0" prefHeight="498.0" prefWidth="857.0">
 
                 <MenuBar prefHeight="26.0" prefWidth="711.0">
                     <menus>
@@ -36,11 +36,14 @@
                         </Menu>
                     </menus>
                 </MenuBar>
-                <TableView fx:id="tvEtudiants" prefHeight="259.0" prefWidth="730.0">
+                <TableView fx:id="tvEtudiants" prefHeight="386.0" prefWidth="858.0">
                     <columns>
-                        <TableColumn fx:id="tcNomEtud" prefWidth="143.1999877691269" text="Nom des étudiants" />
-                        <TableColumn fx:id="tcPrenomEtud" prefWidth="147.99993896484375" text="Prenom des étuidants" />
-               <TableColumn fx:id="tcSection" prefWidth="193.5999755859375" text="Section" />
+                        <TableColumn fx:id="tcNomEtud" prefWidth="150.40003049373627" text="Nom des étudiants" />
+                        <TableColumn fx:id="tcPrenomEtud" prefWidth="161.5999755859375" text="Prenom des étuidants" />
+               <TableColumn fx:id="tcSection" prefWidth="212.79995727539062" text="Section" />
+               <TableColumn fx:id="tcNaissance" prefWidth="143.99996948242188" text="Date de naissance" />
+               <TableColumn fx:id="tcSupprimer" prefWidth="139.99993896484375" text="supprimer" />
+               <TableColumn fx:id="tcModifier" prefWidth="107.199951171875" text="modifier" />
                     </columns>
             <columnResizePolicy>
                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

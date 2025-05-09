@@ -36,8 +36,6 @@ public class UtilisateurDAO extends DAO<Utilisateur>{
     public Utilisateur find(String login, String password) {
         Utilisateur user = new Utilisateur();
         try {
-            Class.forName("org.postgresql.Driver");
-
             String sql = "SELECT * FROM utilisateur WHERE loginUtilisateur =? and mdpUtilisateur=?";
             PreparedStatement ps = this.connect.prepareStatement(sql);
             ps.setString(1, login);
@@ -54,9 +52,6 @@ public class UtilisateurDAO extends DAO<Utilisateur>{
 
         } catch (SQLException e) {
             return null;
-        }
-        catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
         return user;
     }

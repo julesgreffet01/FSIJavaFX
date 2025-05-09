@@ -15,8 +15,6 @@ public class EtudiantDAO extends DAO<Etudiant>{
     public boolean create(Etudiant obj) {
         boolean controle = false;
         try{
-            Class.forName("org.postgresql.Driver");
-
             String sql = "Insert into Etudiant(nomEtudiant, prenomEtudiant, idSection, dateNai) values (?,?,?,?);";
             PreparedStatement statement = this.connect.prepareStatement(sql);
             statement.setString(1,obj.getNomEtudiant());
@@ -33,9 +31,6 @@ public class EtudiantDAO extends DAO<Etudiant>{
         catch(SQLException e){
             e.printStackTrace();
         }
-        catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
         return controle;
     }
 
@@ -43,8 +38,6 @@ public class EtudiantDAO extends DAO<Etudiant>{
         int controle = 1;
 
         try {
-            Class.forName("org.postgresql.Driver");
-
             ResultSet result = this.connect.createStatement().executeQuery("select max(idEtudiant) from Etudiant ");
             if(result.next()){
                 controle = result.getInt(1);
@@ -53,15 +46,26 @@ public class EtudiantDAO extends DAO<Etudiant>{
         catch (SQLException e) {
             e.printStackTrace();
         }
-        catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
         return controle;
     }
 
     @Override
     public boolean delete(Etudiant obj) {
-        return false;
+        boolean controle = false;
+        try{
+            String sql = "DELETE FROM Etudiant WHERE idEtudiant = ?;";
+            PreparedStatement statement = this.connect.prepareStatement(sql);
+            statement.setInt(1,obj.getIdEtudiant());
+
+            int rowsInserer = statement.executeUpdate();
+            if (rowsInserer > 0) {
+                controle = true;
+            }
+
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+        return controle;
     }
 
     @Override
@@ -80,8 +84,6 @@ public class EtudiantDAO extends DAO<Etudiant>{
         Etudiant etud;
 
         try {
-            Class.forName("org.postgresql.Driver");
-
             String sql = "SELECT * FROM etudiant";
             Statement ps = this.connect.createStatement();
             ResultSet rs = ps.executeQuery(sql);
@@ -98,9 +100,6 @@ public class EtudiantDAO extends DAO<Etudiant>{
 
         } catch (SQLException e) {
             return null;
-        }
-        catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
         return mesEtud;
     }

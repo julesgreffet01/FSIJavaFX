@@ -35,9 +35,9 @@ public class ConnexionController implements Initializable {
         String login = tfLogin.getText();
         String mdp = tfMDP.getText();
 
-
         UtilisateurDAO userDAO = new UtilisateurDAO();
         Utilisateur user = userDAO.find(login, mdp);
+        System.out.println(user);
         if (user != null) {
             showAccueil(login);
         }
@@ -45,7 +45,6 @@ public class ConnexionController implements Initializable {
 
     private void showAccueil(String name){
          Stage stageP = (Stage) bConnexion.getScene().getWindow();
-         //on ferme l'écran
           stageP.close();
           try {
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fsiAdministration.controllers.AjouterEtudiantController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fsiAdministration.controllers.AjouterEtudiantController">
    <children>
       <VBox layoutX="-1.0" prefHeight="48.0" prefWidth="729.0">
          <children>
@@ -90,22 +91,31 @@
             </HBox>
          </children>
       </VBox>
-      <HBox layoutX="-1.0" layoutY="345.0" prefHeight="100.0" prefWidth="729.0">
+      <HBox alignment="CENTER" layoutX="-1.0" layoutY="345.0" prefHeight="100.0" prefWidth="729.0">
          <children>
-            <Button fx:id="bEnregistrer" mnemonicParsing="false" onAction="#bEnregistrerClick" prefHeight="39.0" prefWidth="166.0" text="ENREGISTRER" textFill="#024010">
+            <Button fx:id="bEnregistrer" mnemonicParsing="false" onAction="#bEnregistrerClick" prefHeight="39.0" prefWidth="200.0" text="ENREGISTRER" textFill="#024010">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
             </Button>
-            <Button fx:id="bEffacer" mnemonicParsing="false" onAction="#bEffacerClick" prefHeight="39.0" prefWidth="183.0" text="EFFACE" textFill="#024010">
+            <Button fx:id="bEffacer" mnemonicParsing="false" onAction="#bEffacerClick" prefHeight="39.0" prefWidth="200.0" text="EFFACER" textFill="#024010">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
             </Button>
-            <Button fx:id="bRetour" mnemonicParsing="false" onAction="#bRetourClick" prefHeight="39.0" prefWidth="305.0" text="RETOUR" textFill="#024010">
+            <Button fx:id="bRetour" mnemonicParsing="false" onAction="#bRetourClick" prefHeight="39.0" prefWidth="200.0" text="RETOUR" textFill="#024010">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
             </Button>
          </children>
       </HBox>

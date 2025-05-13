@@ -55,4 +55,26 @@ public class UtilisateurDAO extends DAO<Utilisateur>{
         }
         return user;
     }
+
+    public Utilisateur connexion(String login, String password) {
+        Utilisateur user = new Utilisateur();
+        try {
+            String sql = "SELECT * FROM utilisateur WHERE loginUtilisateur =? and mdpUtilisateur=?";
+            PreparedStatement ps = this.connect.prepareStatement(sql);
+            ps.setString(1, login);
+            ps.setString(2, password);
+            ResultSet result = ps.executeQuery();
+            if(result.next()) {
+                user = new Utilisateur(
+                        result.getInt("idutilisateur"),
+                        null,
+                        result.getString("loginutilisateur"));
+            } else {
+                user = null;
+            }
+        } catch (SQLException e) {
+            return null;
+        }
+        return user;
+    }
 }

@@ -109,7 +109,6 @@ public class ListeEtudiantController extends MenuController implements Initializ
     private void addButtonModifierToTable() {
         tcModifier.setCellFactory(col -> new TableCell<>() {
             private final Button btn = new Button("Modifier");
-
             {
                 btn.setOnAction(event -> {
                     Etudiant etudiant = getTableView().getItems().get(getIndex());
@@ -123,15 +122,12 @@ public class ListeEtudiantController extends MenuController implements Initializ
                         ModifierEtudiantController modifierEtudiantController = fxmlLoader.getController();
                         modifierEtudiantController.setAttributs(etudiant);
 
-                        // Créer une nouvelle fenêtre (Stage)
                         Stage stage = new Stage();
                         stage.setTitle("Modification etudiant");
                         stage.setScene(new Scene(root));
 
-                        // Configurer la fenêtre en tant que modal
                         stage.initModality(Modality.APPLICATION_MODAL);
 
-                        // Afficher la fenêtre et attendre qu'elle se ferme
                         stage.show();
                     }  catch (Exception e) {
                         e.printStackTrace();

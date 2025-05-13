@@ -26,7 +26,7 @@ public class ConnexionController implements Initializable {
     @FXML
     private TextField tfLogin;
     @FXML
-    private TextField tfMDP;
+    private PasswordField tfMDP;
     @FXML
     private Button bConnexion;
 
@@ -35,15 +35,21 @@ public class ConnexionController implements Initializable {
         String login = tfLogin.getText();
         String mdp = tfMDP.getText();
 
+        System.out.println(login);
+
         UtilisateurDAO userDAO = new UtilisateurDAO();
         Utilisateur user = userDAO.connexion(login, mdp);
         if (user != null) {
             showAccueil(login);
+        }else{
+            Stage stageP = (Stage) bConnexion.getScene().getWindow();
+            showError();
         }
     }
 
     private void showAccueil(String name){
          Stage stageP = (Stage) bConnexion.getScene().getWindow();
+         //on ferme l'écran
           stageP.close();
           try {
 
@@ -70,6 +76,36 @@ public class ConnexionController implements Initializable {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
+    }
+    @FXML
+    private void showError() {
+
+        try {
+            // Charger le fichier FXML pour la pop-up
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fsiAdministration/views/ErreurConnexion.fxml"));
+            Parent root = fxmlLoader.load();
+
+            // Obtenir le contrôleur de la pop-up
+            ErrorController errorController = fxmlLoader.getController();
+
+            // Passer la variable au contrôleur de la pop-up
+            // errorController.setMajLabel(Integer.toString(compteur));
+
+            // Créer une nouvelle fenêtre (Stage)
+            Stage stage = new Stage();
+            stage.setTitle("Error Window");
+            stage.setScene(new Scene(root));
+
+            // Configurer la fenêtre en tant que modal
+            stage.initModality(Modality.APPLICATION_MODAL);
+
+            // Afficher la fenêtre et attendre qu'elle se ferme
+            stage.showAndWait();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

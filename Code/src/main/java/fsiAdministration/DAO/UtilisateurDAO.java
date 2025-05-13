@@ -37,7 +37,7 @@ public class UtilisateurDAO extends DAO<Utilisateur>{
         Utilisateur user = new Utilisateur();
         try {
             Class.forName("org.postgresql.Driver");
-            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","cannelle01");
+            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","EfaZynWu");
 //            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5433/FSI_GestionAdmin","postgres","postgreSQL");
 
 

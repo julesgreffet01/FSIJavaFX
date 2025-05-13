@@ -43,4 +43,4 @@ bin/
 .DS_Store
 
 ### Other ###
-/main/java/fsiAdministration/DAO/DBManager
+main/java/fsiAdministration/DAO/DBManager.java

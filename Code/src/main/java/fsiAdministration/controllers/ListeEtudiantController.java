@@ -80,9 +80,7 @@ public class ListeEtudiantController extends MenuController implements Initializ
 
     @FXML
     private void bRetourClick(){
-        // On fait le lien avec l'ecran actuelle
         Stage stageP = (Stage) bRetour.getScene().getWindow();
-        //on ferme l'écran
         stageP.close();
 
 
@@ -115,8 +113,29 @@ public class ListeEtudiantController extends MenuController implements Initializ
             {
                 btn.setOnAction(event -> {
                     Etudiant etudiant = getTableView().getItems().get(getIndex());
-                    System.out.println("Modifier : " + etudiant.getIdEtudiant());
-                    // Logique pour ouvrir une fenêtre de modification par ex.
+                    Stage stageP = (Stage) bRetour.getScene().getWindow();
+                    stageP.close();
+
+                    try {
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fsiAdministration/views/page_modif-etu.fxml"));
+                        Parent root = fxmlLoader.load();
+
+                        ModifierEtudiantController modifierEtudiantController = fxmlLoader.getController();
+                        modifierEtudiantController.setAttributs(etudiant);
+
+                        // Créer une nouvelle fenêtre (Stage)
+                        Stage stage = new Stage();
+                        stage.setTitle("Modification etudiant");
+                        stage.setScene(new Scene(root));
+
+                        // Configurer la fenêtre en tant que modal
+                        stage.initModality(Modality.APPLICATION_MODAL);
+
+                        // Afficher la fenêtre et attendre qu'elle se ferme
+                        stage.show();
+                    }  catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 });
             }
 

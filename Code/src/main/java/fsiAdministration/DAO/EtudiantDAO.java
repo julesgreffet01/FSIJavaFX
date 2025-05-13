@@ -70,7 +70,25 @@ public class EtudiantDAO extends DAO<Etudiant>{
 
     @Override
     public boolean update(Etudiant obj) {
-        return false;
+        boolean controle = false;
+        try {
+            String query = "UPDATE Etudiant SET nometudiant = ?, prenometudiant = ?, idsection = ?, datenai = ? WHERE idetudiant = ?";
+            PreparedStatement statement = this.connect.prepareStatement(query);
+            statement.setString(1,obj.getNomEtudiant());
+            statement.setString(2,obj.getPrenomEtudiant());
+            statement.setInt(3,obj.getIdSection());
+            statement.setDate(4,obj.getDateNaiEtu());
+            statement.setInt(5,obj.getIdEtudiant());
+
+            int rowsInserer = statement.executeUpdate();
+            if (rowsInserer > 0) {
+                controle = true;
+            }
+
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+        return controle;
     }
 
     @Override
@@ -84,7 +102,7 @@ public class EtudiantDAO extends DAO<Etudiant>{
         Etudiant etud;
 
         try {
-            String sql = "SELECT * FROM etudiant";
+            String sql = "SELECT * FROM etudiant ORDER BY idetudiant";
             Statement ps = this.connect.createStatement();
             ResultSet rs = ps.executeQuery(sql);
             while(rs.next()) {

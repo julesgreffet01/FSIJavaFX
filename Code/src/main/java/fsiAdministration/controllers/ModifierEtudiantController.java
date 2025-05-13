@@ -78,7 +78,6 @@ public class ModifierEtudiantController extends MenuController implements Initia
             int z = selected.getIdSection();
             Date sqlDate = Date.valueOf(dateNai);
             Etudiant newEtud = new Etudiant(idEtu,x,y,z, sqlDate);
-            System.out.println(newEtud.getNomEtudiant());
 
             EtudiantDAO etudDAO = new EtudiantDAO();
             boolean controle = etudDAO.update(newEtud);

@@ -23,23 +23,19 @@ public class UtilisateurDAO extends DAO<Utilisateur>{
         return false;
     }
 
-    @Override
-    public Utilisateur find(int id) {
-        return null;
-    }
 
     @Override
     public List<Utilisateur> findAll() {
         return List.of();
     }
 
-    public Utilisateur find(String login, String password) {
+    @Override
+    public Utilisateur find(int idEtu) {
         Utilisateur user = new Utilisateur();
         try {
-            String sql = "SELECT * FROM utilisateur WHERE loginUtilisateur =? and mdpUtilisateur=?";
+            String sql = "SELECT * FROM utilisateur WHERE idetudiant = ?";
             PreparedStatement ps = this.connect.prepareStatement(sql);
-            ps.setString(1, login);
-            ps.setString(2, password);
+            ps.setInt(1, idEtu);
             ResultSet result = ps.executeQuery();
             if(result.next()) {
                 user = new Utilisateur(

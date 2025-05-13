@@ -91,7 +91,7 @@ public class AjouterEtudiantController extends MenuController implements Initial
         Section selected = lvSectionEtud.getSelectionModel().getSelectedItem();
         LocalDate dateNai = datePickerNai.getValue();
 
-        if(x != null && y != null && selected != null && dateNai != null) {
+        if(x != null && y != null && selected != null && dateNai != null && !x.trim().isEmpty() && !y.trim().isEmpty()) {
             int z = selected.getIdSection();
             Date sqlDate = Date.valueOf(dateNai);
             Etudiant newEtud = new Etudiant(0,x,y,z, sqlDate);

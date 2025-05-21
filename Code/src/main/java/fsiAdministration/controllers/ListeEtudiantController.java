@@ -107,7 +107,7 @@ public class ListeEtudiantController extends MenuController implements Initializ
     }
 
     private void addButtonModifierToTable() {
-        tcModifier.setCellFactory(col -> new TableCell<>() {
+        tcModifier.setCellFactory(column -> new TableCell<>() {
             private final Button btn = new Button("Modifier");
             {
                 btn.setOnAction(event -> {
@@ -144,14 +144,15 @@ public class ListeEtudiantController extends MenuController implements Initializ
     }
 
     private void addButtonSupprimerToTable() {
-        tcSupprimer.setCellFactory(col -> new TableCell<>() {
+        tcSupprimer.setCellFactory(column -> new TableCell<>() {
             private final Button btn = new Button("Supprimer");
 
             {
                 btn.setOnAction(event -> {
                     Etudiant etudiant = getTableView().getItems().get(getIndex());
                     tvEtudiants.getItems().remove(etudiant);
-                    new EtudiantDAO().delete(etudiant);
+                    EtudiantDAO etudDAO = new EtudiantDAO();
+                    etudDAO.delete(etudiant);
                 });
             }
 

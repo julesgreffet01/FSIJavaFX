@@ -17,7 +17,7 @@ public class MenuController {
 
 
     @FXML
-    protected MenuItem bListeEtud, bAjouterEtud, bListeSection, bAjouterSection, bQuitter, bAccueil;
+    protected MenuItem bListeEtud, bAjouterEtud, bListeSection, bAjouterSection, bQuitter, bAccueil, bListeCours, bAjouterCours;
 
 
 
@@ -128,7 +128,7 @@ public class MenuController {
 
 
             // Obtenir le contrôleur de la nouvelle fenetre
-            ListeEtudiantController abc = fxmlLoader.getController();
+            ListeEtudiantController listeEtu = fxmlLoader.getController();
 
             // Créer une nouvelle fenêtre (Stage)
             Stage stage = new Stage();
@@ -149,4 +149,36 @@ public class MenuController {
 
     @FXML
     public void bAjouterSectionClick(ActionEvent event) {}
+
+    @FXML
+    public void bListeCoursClick(ActionEvent event) {
+        try {
+
+            // Charger le fichier FXML
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fsiAdministration/views/page_liste_cours.fxml"));
+            Parent root = fxmlLoader.load();
+
+
+            // Obtenir le contrôleur de la nouvelle fenetre
+            ListeCoursController listeCoursController = fxmlLoader.getController();
+
+            // Créer une nouvelle fenêtre (Stage)
+            Stage stage = new Stage();
+            stage.setTitle("Liste etudiant");
+            stage.setScene(new Scene(root));
+
+            // Configurer la fenêtre en tant que modal
+            stage.initModality(Modality.APPLICATION_MODAL);
+
+            // Afficher la fenêtre et attendre qu'elle se ferme
+            stage.show();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void bAjouterCoursClick(ActionEvent event) {}
 }

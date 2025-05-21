@@ -34,7 +34,7 @@ public class CoursDAO extends DAO<Cours>{
         List<Cours> mesCours = new ArrayList<>();
         Cours cours;
         try {
-            String sql = "select * from cours where idEtudiant=?";
+            String sql = "select * from cours";
             Statement ps = this.connect.createStatement();
             ResultSet rs = ps.executeQuery(sql);
             while(rs.next()) {

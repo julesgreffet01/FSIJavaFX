@@ -10,32 +10,41 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fsiAdministration.controllers.ListeEtudiantController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fsiAdministration.controllers.ListeEtudiantController">
     <children>
         <VBox layoutX="-1.0" prefHeight="498.0" prefWidth="857.0">
-
-                <MenuBar prefHeight="26.0" prefWidth="711.0">
-                    <menus>
-                        <Menu fx:id="gestionEtud" mnemonicParsing="false" text="Gestion étudiant">
-                            <items>
-                                <MenuItem fx:id="bListeEtud" mnemonicParsing="false" onAction="#bListEtudClick" text="liste étudiant" />
-                                <MenuItem fx:id="bAjouterEtud" mnemonicParsing="false" onAction="#bAjouterEtudClick" text="ajouter un étudiant" />
-                            </items>
-                        </Menu>
-                        <Menu fx:id="gestionSection" mnemonicParsing="false" text="Gestion section">
-                            <items>
-                                <MenuItem fx:id="bListeSection" mnemonicParsing="false" onAction="#bListeSectionClick" text="Liste des sections" />
-                                <MenuItem fx:id="bAjouterSection" mnemonicParsing="false" onAction="#bAjouterSectionClick" text="ajouter une section" />
-                            </items>
-                        </Menu>
-                        <Menu fx:id="bAutres" mnemonicParsing="false" text="Autres">
-                            <items>
-                                <MenuItem fx:id="bAccueil" mnemonicParsing="false" onAction="#bAccueilClick" text="Accueil" />
-                                <MenuItem fx:id="bQuitter" mnemonicParsing="false" onAction="#bQuitterClick" text="Quitter" />
-                            </items>
-                        </Menu>
-                    </menus>
-                </MenuBar>
+         <VBox prefHeight="48.0" prefWidth="729.0">
+            <children>
+               <MenuBar prefHeight="26.0" prefWidth="711.0">
+                  <menus>
+                     <Menu fx:id="gestionEtud" mnemonicParsing="false" text="Gestion étudiant">
+                        <items>
+                           <MenuItem fx:id="bListeEtud" mnemonicParsing="false" onAction="#bListEtudClick" text="liste étudiant" />
+                           <MenuItem fx:id="bAjouterEtud" mnemonicParsing="false" onAction="#bAjouterEtudClick" text="ajouter un étudiant" />
+                        </items>
+                     </Menu>
+                     <Menu fx:id="gestionSection" mnemonicParsing="false" text="Gestion section">
+                        <items>
+                           <MenuItem fx:id="bListeSection" mnemonicParsing="false" onAction="#bListeSectionClick" text="Liste des sections" />
+                           <MenuItem fx:id="bAjouterSection" mnemonicParsing="false" onAction="#bAjouterSectionClick" text="ajouter une section" />
+                        </items>
+                     </Menu>
+                     <Menu fx:id="gestionCours" mnemonicParsing="false" text="Gestion cours">
+                        <items>
+                           <MenuItem fx:id="bListeCours" mnemonicParsing="false" onAction="#bListeCoursClick" text="liste cours" />
+                           <MenuItem fx:id="bAjouterCours" mnemonicParsing="false" onAction="#bAjouterCoursClick" text="ajouter un cours" />
+                        </items>
+                     </Menu>
+                     <Menu fx:id="bAutres" mnemonicParsing="false" text="Autres">
+                        <items>
+                           <MenuItem fx:id="bAccueil" mnemonicParsing="false" onAction="#bAccueilClick" text="Accueil" />
+                           <MenuItem fx:id="bQuitter" mnemonicParsing="false" onAction="#bQuitterClick" text="Quitter" />
+                        </items>
+                     </Menu>
+                  </menus>
+               </MenuBar>
+            </children>
+         </VBox>
                 <TableView fx:id="tvEtudiants" prefHeight="386.0" prefWidth="858.0">
                     <columns>
                         <TableColumn fx:id="tcNomEtud" prefWidth="150.40003049373627" text="Nom des étudiants" />

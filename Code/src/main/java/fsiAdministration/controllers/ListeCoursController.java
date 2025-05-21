@@ -40,6 +40,7 @@ public class ListeCoursController extends MenuController implements Initializabl
         tcLib.setCellValueFactory(new PropertyValueFactory<>("lib"));
         ObservableList<Cours> data = getCoursList();
         tvCours.setItems(data);
+        getCoursList();
     }
 
     private ObservableList<Cours> getCoursList() {
@@ -53,7 +54,6 @@ public class ListeCoursController extends MenuController implements Initializabl
     private void bRetourClick(){
         Stage stageP = (Stage) bRetour.getScene().getWindow();
         stageP.close();
-
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fsiAdministration/views/page_accueil.fxml"));

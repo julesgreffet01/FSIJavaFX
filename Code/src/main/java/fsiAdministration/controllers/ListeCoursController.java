@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -29,7 +30,13 @@ public class ListeCoursController extends MenuController implements Initializabl
     private TableColumn<Cours, String> tcLib;
 
     @FXML
-    private TableColumn<Cours, Void> tcVp;
+    private TableColumn<Cours, String> tcDesc;
+
+    @FXML
+    private TableColumn<Cours, Void> tcModif;
+
+    @FXML
+    private TableColumn<Cours, Void> tcSupp;
 
     @FXML
     private Button bRetour;
@@ -38,9 +45,10 @@ public class ListeCoursController extends MenuController implements Initializabl
     public void initialize(URL location, ResourceBundle resources) {
 
         tcLib.setCellValueFactory(new PropertyValueFactory<>("lib"));
+        tcDesc.setCellValueFactory(new PropertyValueFactory<>("desc"));
         ObservableList<Cours> data = getCoursList();
         tvCours.setItems(data);
-        getCoursList();
+        btnModif();
     }
 
     private ObservableList<Cours> getCoursList() {
@@ -60,6 +68,8 @@ public class ListeCoursController extends MenuController implements Initializabl
             Parent root = fxmlLoader.load();
 
             AccueilController accueilController = fxmlLoader.getController();
+            accueilController.setName(nameUti);
+            accueilController.setBienvenue();
 
             // Créer une nouvelle fenêtre (Stage)
             Stage stage = new Stage();
@@ -75,5 +85,42 @@ public class ListeCoursController extends MenuController implements Initializabl
             e.printStackTrace();
         }
 
+    }
+
+    private void btnModif(){
+        tcModif.setCellFactory(col -> new TableCell<>() {
+            private final Button button = new Button("Modifier");
+            {
+                button.setOnAction(event -> {
+                    Cours cours = getTableView().getItems().get(getIndex());
+                    Stage stageP = (Stage) bRetour.getScene().getWindow();
+                    stageP.close();
+
+                    try {
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fsiAdministration/views/page_modif_cours.fxml"));
+                        Parent root = fxmlLoader.load();
+
+                        ModifierCoursController modifierCoursController = fxmlLoader.getController();
+                        modifierCoursController.setAttributs(cours);
+                        modifierCoursController.setName(nameUti);
+
+                        Stage stage = new Stage();
+                        stage.setTitle("Modification etudiant");
+                        stage.setScene(new Scene(root));
+
+                        stage.initModality(Modality.APPLICATION_MODAL);
+
+                        stage.show();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                setGraphic(empty ? null : button);
+            }
+        });
     }
 }

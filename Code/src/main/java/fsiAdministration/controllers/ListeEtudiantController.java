@@ -89,6 +89,8 @@ public class ListeEtudiantController extends MenuController implements Initializ
             Parent root = fxmlLoader.load();
 
             AccueilController accueilController = fxmlLoader.getController();
+            accueilController.setName(nameUti);
+            accueilController.setBienvenue();
 
             // Créer une nouvelle fenêtre (Stage)
             Stage stage = new Stage();
@@ -121,6 +123,7 @@ public class ListeEtudiantController extends MenuController implements Initializ
 
                         ModifierEtudiantController modifierEtudiantController = fxmlLoader.getController();
                         modifierEtudiantController.setAttributs(etudiant);
+                        modifierEtudiantController.setName(nameUti);
 
                         Stage stage = new Stage();
                         stage.setTitle("Modification etudiant");

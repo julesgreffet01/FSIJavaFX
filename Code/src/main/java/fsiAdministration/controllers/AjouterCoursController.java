@@ -1,8 +1,8 @@
 package fsiAdministration.controllers;
 
-import fsiAdministration.BO.Etudiant;
+import fsiAdministration.BO.Cours;
 import fsiAdministration.BO.Section;
-import fsiAdministration.DAO.EtudiantDAO;
+import fsiAdministration.DAO.CoursDAO;
 import fsiAdministration.DAO.SectionDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,37 +13,32 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.sql.Date;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class AjouterEtudiantController extends MenuController implements Initializable {
+public class AjouterCoursController extends MenuController implements Initializable {
 
     @FXML
-    private TextField tfNomEtud, tfPrenomEtud;
-    @FXML
-    private Button bRetour;
-    @FXML
-    private ListView<Section> lvSectionEtud;
+    private TextField tfLibCours, tfDescCours;
 
     @FXML
-    private DatePicker datePickerNai;
+    private Button bRetour, bEnregistrer, bEffacer;
 
+    @FXML
+    private ListView<Section> lvSectionCours;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         ObservableList<Section> sections = getSectionList();
 
-        lvSectionEtud.setItems(sections);
+        lvSectionCours.setItems(sections);
     }
 
     private ObservableList<Section> getSectionList() {
@@ -54,7 +49,6 @@ public class AjouterEtudiantController extends MenuController implements Initial
         ObservableList<Section> list = FXCollections.observableArrayList(sections);
         return list;
     }
-
     @FXML
     public void bRetourClick(ActionEvent event) {
         // On fait le lien avec l'ecran actuelle
@@ -88,24 +82,18 @@ public class AjouterEtudiantController extends MenuController implements Initial
 
     @FXML
     public void bEnregistrerClick(ActionEvent event) {
-
-        String x = tfNomEtud.getText();
-        String y = tfPrenomEtud.getText();
-        Section selected = lvSectionEtud.getSelectionModel().getSelectedItem();
-        LocalDate dateNai = datePickerNai.getValue();
-
-        if(x != null && y != null && selected != null && dateNai != null && !x.trim().isEmpty() && !y.trim().isEmpty()) {
-            int z = selected.getIdSection();
-            Date sqlDate = Date.valueOf(dateNai);
-            Etudiant newEtud = new Etudiant(0,x,y,z, sqlDate);
-
-            EtudiantDAO etudDAO = new EtudiantDAO();
-            boolean controle = etudDAO.create(newEtud);
+        String lib = tfLibCours.getText();
+        String desc = tfDescCours.getText();
+        Section selected = lvSectionCours.getSelectionModel().getSelectedItem();
+        if(lib != null && desc != null && !lib.trim().isEmpty() && !desc.trim().isEmpty() && selected != null) {
+            int idSection = selected.getIdSection();
+            Cours newCours = new Cours(0, lib, desc, idSection);
+            CoursDAO coursDAO = new CoursDAO();
+            boolean controle = coursDAO.create(newCours);
             if(controle) {
-                tfNomEtud.clear();
-                tfPrenomEtud.clear();
-                lvSectionEtud.getSelectionModel().clearSelection();
-                datePickerNai.setValue(null);
+                tfLibCours.clear();
+                tfDescCours.clear();
+                lvSectionCours.getSelectionModel().clearSelection();
             }
         } else {
             try {
@@ -130,17 +118,13 @@ public class AjouterEtudiantController extends MenuController implements Initial
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
         }
     }
 
     @FXML
     public void bEffacerClick(ActionEvent event) {
-        tfNomEtud.clear();
-        tfPrenomEtud.clear();
-        lvSectionEtud.getSelectionModel().clearSelection();
-        datePickerNai.setValue(null);
+        tfLibCours.clear();
+        tfDescCours.clear();
+        lvSectionCours.getSelectionModel().clearSelection();
     }
-
-
 }

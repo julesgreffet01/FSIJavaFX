@@ -94,6 +94,7 @@ public class ModifierEtudiantController extends MenuController implements Initia
 
                     // Obtenir le contrôleur de la nouvelle fenetre
                     ListeEtudiantController listeEtudiantController = fxmlLoader.getController();
+                    listeEtudiantController.setName(nameUti);
 
                     // Créer une nouvelle fenêtre (Stage)
                     Stage stage = new Stage();
@@ -152,6 +153,7 @@ public class ModifierEtudiantController extends MenuController implements Initia
 
             // Obtenir le contrôleur de la nouvelle fenetre
             ListeEtudiantController listeEtudiantController = fxmlLoader.getController();
+            listeEtudiantController.setName(nameUti);
 
             // Créer une nouvelle fenêtre (Stage)
             Stage stage = new Stage();

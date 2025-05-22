@@ -20,8 +20,8 @@ public class AccueilController extends MenuController implements Initializable {
 
     }
 
-    public void setName(String name){
-        name = name.toUpperCase();
-        bienvenue.setText("BONJOUR " + name);
+    public void setBienvenue() {
+        bienvenue.setText("BONJOUR " + nameUti.toUpperCase());
     }
+
 }

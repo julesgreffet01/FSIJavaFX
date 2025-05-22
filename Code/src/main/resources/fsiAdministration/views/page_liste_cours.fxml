@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fsiAdministration.controllers.ListeCoursController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="804.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fsiAdministration.controllers.ListeCoursController">
    <children>
-      <VBox layoutX="-1.0" prefHeight="48.0" prefWidth="729.0">
+      <VBox layoutX="-1.0" prefHeight="48.0" prefWidth="804.0">
          <children>
-            <MenuBar prefHeight="26.0" prefWidth="711.0">
+            <MenuBar prefHeight="26.0" prefWidth="799.0">
                <menus>
                   <Menu fx:id="gestionEtud" mnemonicParsing="false" text="Gestion étudiant">
                      <items>
@@ -58,10 +58,12 @@
             </Button>
          </children>
       </HBox>
-      <TableView fx:id="tvCours" layoutX="104.0" layoutY="66.0" prefHeight="292.0" prefWidth="519.0">
+      <TableView fx:id="tvCours" layoutY="63.0" prefHeight="292.0" prefWidth="804.0">
         <columns>
-          <TableColumn fx:id="tcLib" prefWidth="375.2000198364258" text="Libelle" />
-          <TableColumn fx:id="tcVp" prefWidth="143.19992065429688" text="voir plus" />
+          <TableColumn fx:id="tcLib" prefWidth="144.7999939918518" text="Libelle" />
+          <TableColumn fx:id="tcDesc" prefWidth="439.99998474121094" text="Description" />
+            <TableColumn fx:id="tcModif" prefWidth="110.0" text="Modifier" />
+            <TableColumn fx:id="tcSupp" prefWidth="110.0" text="Supprimer" />
         </columns>
       </TableView>
    </children>

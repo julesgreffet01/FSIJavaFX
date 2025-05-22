@@ -2,6 +2,7 @@ package fsiAdministration.DAO;
 
 import fsiAdministration.BO.Cours;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -11,7 +12,22 @@ import java.util.List;
 public class CoursDAO extends DAO<Cours>{
     @Override
     public boolean create(Cours obj) {
-        return false;
+        boolean result = false;
+        String sql = "INSERT INTO cours (libellecours, descriptioncours, idSection) VALUES (?,?,?)";
+        try {
+            PreparedStatement ps = this.connect.prepareStatement(sql);
+            ps.setString(1, obj.getLib());
+            ps.setString(2, obj.getDesc());
+            ps.setInt(3, obj.getIdSection());
+
+            int rowsInserer = ps.executeUpdate();
+            if (rowsInserer > 0) {
+                result = true;
+            }
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+        return result;
     }
 
     @Override

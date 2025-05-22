@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fsiAdministration.controllers.ListeEtudiantController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fsiAdministration.controllers.ListeEtudiantController">
     <children>
         <VBox layoutX="-1.0" prefHeight="498.0" prefWidth="857.0">
          <VBox prefHeight="48.0" prefWidth="729.0">
@@ -51,8 +51,8 @@
                         <TableColumn fx:id="tcPrenomEtud" prefWidth="161.5999755859375" text="Prenom des étuidants" />
                <TableColumn fx:id="tcSection" prefWidth="212.79995727539062" text="Section" />
                <TableColumn fx:id="tcNaissance" prefWidth="143.99996948242188" text="Date de naissance" />
-               <TableColumn fx:id="tcSupprimer" prefWidth="139.99993896484375" text="supprimer" />
-               <TableColumn fx:id="tcModifier" prefWidth="107.199951171875" text="modifier" />
+               <TableColumn fx:id="tcSupprimer" prefWidth="110.0" text="supprimer" />
+               <TableColumn fx:id="tcModifier" prefWidth="110.0" text="modifier" />
                     </columns>
             <columnResizePolicy>
                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

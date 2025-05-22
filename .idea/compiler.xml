@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="P2026_2SIO_FSI_Administration" target="21" />
+      <module name="P2026_2SIO_FSI_Administration.main" target="21" />
+      <module name="P2026_2SIO_FSI_Administration.test" target="21" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

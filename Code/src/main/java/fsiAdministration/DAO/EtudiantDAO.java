@@ -34,19 +34,20 @@ public class EtudiantDAO extends DAO<Etudiant>{
         return controle;
     }
 
-    public int lastId(){
-        int controle = 1;
-
-        try {
-            ResultSet result = this.connect.createStatement().executeQuery("select max(idEtudiant) from Etudiant ");
-            if(result.next()){
-                controle = result.getInt(1);
+    public Integer getNbEtuByIdSection(int idSection){
+        int result = 0;
+        try  {
+            String sql = "Select Count(*) from Etudiant where idSection = ?";
+            PreparedStatement ps = this.connect.prepareStatement(sql);
+            ps.setInt(1,idSection);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                result = rs.getInt(1);
             }
-        }
-        catch (SQLException e) {
+        } catch(SQLException e){
             e.printStackTrace();
         }
-        return controle;
+        return result;
     }
 
     @Override
@@ -116,6 +117,30 @@ public class EtudiantDAO extends DAO<Etudiant>{
                 mesEtud.add(etud);
             }
 
+        } catch (SQLException e) {
+            return null;
+        }
+        return mesEtud;
+    }
+
+    public List getAllBySection(int idSection) {
+        List<Etudiant> mesEtud = new ArrayList<>();
+        Etudiant etud;
+        try {
+            String sql = "SELECT * FROM etudiant WHERE idSection = ?";
+            PreparedStatement ps = this.connect.prepareStatement(sql);
+            ps.setInt(1, idSection);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                etud = new Etudiant(
+                        rs.getInt("idEtudiant"),
+                        rs.getString("nomEtudiant"),
+                        rs.getString("prenomEtudiant"),
+                        rs.getInt("idSection"),
+                        rs.getDate("DateNai")
+                );
+                mesEtud.add(etud);
+            }
         } catch (SQLException e) {
             return null;
         }

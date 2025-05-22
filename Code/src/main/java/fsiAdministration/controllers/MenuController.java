@@ -130,26 +130,19 @@ public class MenuController {
         stageP.close();
         try {
 
-            // Charger le fichier FXML
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fsiAdministration/views/page_liste_etudiant.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fsiAdministration/views/page_liste_section.fxml"));
             Parent root = fxmlLoader.load();
 
+            ListeSectionController listeSectionController = fxmlLoader.getController();
+            listeSectionController.setName(nameUti);
 
-            // Obtenir le contrôleur de la nouvelle fenetre
-            ListeEtudiantController listeEtu = fxmlLoader.getController();
-            listeEtu.setName(nameUti);
-
-            // Créer une nouvelle fenêtre (Stage)
             Stage stage = new Stage();
             stage.setTitle("Liste etudiant");
             stage.setScene(new Scene(root));
 
-            // Configurer la fenêtre en tant que modal
             stage.initModality(Modality.APPLICATION_MODAL);
 
-            // Afficher la fenêtre et attendre qu'elle se ferme
             stage.show();
-
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -40,7 +40,7 @@
             </MenuBar>
          </children>
       </VBox>
-      <Label id="bienvenue" alignment="TOP_CENTER" layoutY="172.0" prefHeight="40.0" prefWidth="729.0" text="BIENVENUE" textFill="#024010">
+      <Label fx:id="bienvenue" alignment="TOP_CENTER" layoutY="172.0" prefHeight="40.0" prefWidth="729.0" text="BIENVENUE" textFill="#024010">
          <font>
             <Font name="Franklin Gothic Medium" size="40.0" />
          </font>

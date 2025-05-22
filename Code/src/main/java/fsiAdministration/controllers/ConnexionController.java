@@ -36,20 +36,19 @@ public class ConnexionController implements Initializable {
         String login = tfLogin.getText();
         String mdp = tfMDP.getText();
 
-        System.out.println(mdp);
+        System.out.println(login);
 
         UtilisateurDAO userDAO = new UtilisateurDAO();
-        Utilisateur user = userDAO.find(login, mdp);
-        System.out.println(user);
+        Utilisateur user = userDAO.connexion(login, mdp);
         if (user != null) {
-            showAccueil();
+            showAccueil(login);
         }else{
             Stage stageP = (Stage) bConnexion.getScene().getWindow();
             showError();
         }
     }
 
-    private void showAccueil(){
+    private void showAccueil(String name){
          Stage stageP = (Stage) bConnexion.getScene().getWindow();
          //on ferme l'écran
           stageP.close();
@@ -61,6 +60,7 @@ public class ConnexionController implements Initializable {
 
                 // Obtenir le contrôleur de la nouvelle fenetre
                 AccueilController accueilController = fxmlLoader.getController();
+                accueilController.setName(name);
 
                 // Créer une nouvelle fenêtre (Stage)
                 Stage stage = new Stage();

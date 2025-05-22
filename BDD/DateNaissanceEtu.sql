@@ -1,0 +1,2 @@
+ALTER TABLE ETUDIANT
+ADD DateNai Date

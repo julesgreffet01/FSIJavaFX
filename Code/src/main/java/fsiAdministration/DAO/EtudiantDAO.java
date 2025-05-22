@@ -2,6 +2,7 @@ package fsiAdministration.DAO;
 
 import fsiAdministration.BO.Etudiant;
 import fsiAdministration.BO.Utilisateur;
+import javafx.beans.property.SimpleStringProperty;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,14 +15,12 @@ public class EtudiantDAO extends DAO<Etudiant>{
     public boolean create(Etudiant obj) {
         boolean controle = false;
         try{
-            Class.forName("org.postgresql.Driver");
-            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","EfaZynWu");
-//            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5433/FSI_GestionAdmin","postgres","postgreSQL");
-            String sql = "Insert into Etudiant(nomEtudiant, prenomEtudiant, idSection) values (?,?,?);";
-            PreparedStatement statement = connect.prepareStatement(sql);
+            String sql = "Insert into Etudiant(nomEtudiant, prenomEtudiant, idSection, dateNai) values (?,?,?,?);";
+            PreparedStatement statement = this.connect.prepareStatement(sql);
             statement.setString(1,obj.getNomEtudiant());
             statement.setString(2,obj.getPrenomEtudiant());
             statement.setInt(3,obj.getIdSection());
+            statement.setDate(4,obj.getDateNaiEtu());
 
             int rowsInserer = statement.executeUpdate();
             if (rowsInserer > 0) {
@@ -32,9 +31,6 @@ public class EtudiantDAO extends DAO<Etudiant>{
         catch(SQLException e){
             e.printStackTrace();
         }
-        catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
         return controle;
     }
 
@@ -42,11 +38,7 @@ public class EtudiantDAO extends DAO<Etudiant>{
         int controle = 1;
 
         try {
-            Class.forName("org.postgresql.Driver");
-            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","EfaZynWu");
-//            Connection  connect = DriverManager.getConnection("jdbc:postgresql://localhost:5433/FSI_GestionAdmin","postgres","postgreSQL");
-
-            ResultSet result = connect.createStatement().executeQuery("select max(idEtudiant) from Etudiant ");
+            ResultSet result = this.connect.createStatement().executeQuery("select max(idEtudiant) from Etudiant ");
             if(result.next()){
                 controle = result.getInt(1);
             }
@@ -54,20 +46,49 @@ public class EtudiantDAO extends DAO<Etudiant>{
         catch (SQLException e) {
             e.printStackTrace();
         }
-        catch (ClassNotFoundException e) {
+        return controle;
+    }
+
+    @Override
+    public boolean delete(Etudiant obj) {
+        boolean controle = false;
+        try{
+            String sql = "DELETE FROM Etudiant WHERE idEtudiant = ?;";
+            PreparedStatement statement = this.connect.prepareStatement(sql);
+            statement.setInt(1,obj.getIdEtudiant());
+
+            int rowsInserer = statement.executeUpdate();
+            if (rowsInserer > 0) {
+                controle = true;
+            }
+
+        } catch(SQLException e){
             e.printStackTrace();
         }
         return controle;
     }
 
     @Override
-    public boolean delete(Etudiant obj) {
-        return false;
-    }
-
-    @Override
     public boolean update(Etudiant obj) {
-        return false;
+        boolean controle = false;
+        try {
+            String query = "UPDATE Etudiant SET nometudiant = ?, prenometudiant = ?, idsection = ?, datenai = ? WHERE idetudiant = ?";
+            PreparedStatement statement = this.connect.prepareStatement(query);
+            statement.setString(1,obj.getNomEtudiant());
+            statement.setString(2,obj.getPrenomEtudiant());
+            statement.setInt(3,obj.getIdSection());
+            statement.setDate(4,obj.getDateNaiEtu());
+            statement.setInt(5,obj.getIdEtudiant());
+
+            int rowsInserer = statement.executeUpdate();
+            if (rowsInserer > 0) {
+                controle = true;
+            }
+
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+        return controle;
     }
 
     @Override
@@ -81,28 +102,22 @@ public class EtudiantDAO extends DAO<Etudiant>{
         Etudiant etud;
 
         try {
-            Class.forName("org.postgresql.Driver");
-            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","EfaZynWu");
-//            Connection  connect = DriverManager.getConnection("jdbc:postgresql://localhost:5433/FSI_GestionAdmin","postgres","postgreSQL");
-
-            String sql = "SELECT * FROM etudiant";
-            Statement ps = connect.createStatement();
+            String sql = "SELECT * FROM etudiant ORDER BY idetudiant";
+            Statement ps = this.connect.createStatement();
             ResultSet rs = ps.executeQuery(sql);
             while(rs.next()) {
                 etud = new Etudiant(
                         rs.getInt("idEtudiant"),
-                        rs.getString ("nomEtudiant"),
+                        rs.getString("nomEtudiant"),
                         rs.getString("prenomEtudiant"),
-                        rs.getInt("idSection")
+                        rs.getInt("idSection"),
+                        rs.getDate("DateNai")
                         );
                 mesEtud.add(etud);
             }
 
         } catch (SQLException e) {
             return null;
-        }
-        catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
         return mesEtud;
     }

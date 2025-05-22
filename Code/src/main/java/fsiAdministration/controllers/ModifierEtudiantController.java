@@ -25,7 +25,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class AjouterEtudiantController extends MenuController implements Initializable {
+public class ModifierEtudiantController extends MenuController implements Initializable {
 
     @FXML
     private TextField tfNomEtud, tfPrenomEtud;
@@ -37,12 +37,15 @@ public class AjouterEtudiantController extends MenuController implements Initial
     @FXML
     private DatePicker datePickerNai;
 
+    private int idEtu;
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         ObservableList<Section> sections = getSectionList();
 
-        lvSectionEtud.setItems(sections);
+        ObservableList<Section> section = FXCollections.observableArrayList(sections);
+        lvSectionEtud.setItems(section);
     }
 
     private ObservableList<Section> getSectionList() {
@@ -54,38 +57,18 @@ public class AjouterEtudiantController extends MenuController implements Initial
         return list;
     }
 
-    @FXML
-    public void bRetourClick(ActionEvent event) {
-        // On fait le lien avec l'ecran actuelle
-        Stage stageP = (Stage) bRetour.getScene().getWindow();
-        //on ferme l'écran
-        stageP.close();
-
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fsiAdministration/views/page_accueil.fxml"));
-            Parent root = fxmlLoader.load();
-
-            AccueilController accueilController = fxmlLoader.getController();
-
-            // Créer une nouvelle fenêtre (Stage)
-            Stage stage = new Stage();
-            stage.setTitle("Liste etudiant");
-            stage.setScene(new Scene(root));
-
-            // Configurer la fenêtre en tant que modal
-            stage.initModality(Modality.APPLICATION_MODAL);
-
-            // Afficher la fenêtre et attendre qu'elle se ferme
-            stage.show();
-        }  catch (Exception e) {
-            e.printStackTrace();
+    public void setAttributs(Etudiant etu) {
+        tfNomEtud.setText(etu.getNomEtudiant());
+        tfPrenomEtud.setText(etu.getPrenomEtudiant());
+        if(etu.getDateNaiEtu() != null){
+            datePickerNai.setValue(etu.getDateNaiEtu().toLocalDate());
         }
-
+        lvSectionEtud.getSelectionModel().select(etu.getIdSection() - 1);
+        this.idEtu = etu.getIdEtudiant();
     }
 
     @FXML
-    public void bEnregistrerClick(ActionEvent event) {
-
+    private void bEnregistrerClick(ActionEvent event) {
         String x = tfNomEtud.getText();
         String y = tfPrenomEtud.getText();
         Section selected = lvSectionEtud.getSelectionModel().getSelectedItem();
@@ -94,10 +77,10 @@ public class AjouterEtudiantController extends MenuController implements Initial
         if(x != null && y != null && selected != null && dateNai != null && !x.trim().isEmpty() && !y.trim().isEmpty()) {
             int z = selected.getIdSection();
             Date sqlDate = Date.valueOf(dateNai);
-            Etudiant newEtud = new Etudiant(0,x,y,z, sqlDate);
+            Etudiant newEtud = new Etudiant(idEtu,x,y,z, sqlDate);
 
             EtudiantDAO etudDAO = new EtudiantDAO();
-            boolean controle = etudDAO.create(newEtud);
+            boolean controle = etudDAO.update(newEtud);
             if(controle) {
                 tfNomEtud.clear();
                 tfPrenomEtud.clear();
@@ -132,10 +115,34 @@ public class AjouterEtudiantController extends MenuController implements Initial
     }
 
     @FXML
-    public void bEffacerClick(ActionEvent event) {
-        tfNomEtud.clear();
-        tfPrenomEtud.clear();
-        lvSectionEtud.getSelectionModel().clearSelection();
-        datePickerNai.setValue(null);
+    private void bRetourClick(ActionEvent event) {
+        Stage stageP = (Stage) bRetour.getScene().getWindow();
+        stageP.close();
+
+        try {
+
+            // Charger le fichier FXML
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fsiAdministration/views/page_liste_etudiant.fxml"));
+            Parent root = fxmlLoader.load();
+
+
+            // Obtenir le contrôleur de la nouvelle fenetre
+            ListeEtudiantController listeEtudiantController = fxmlLoader.getController();
+
+            // Créer une nouvelle fenêtre (Stage)
+            Stage stage = new Stage();
+            stage.setTitle("Liste etudiant");
+            stage.setScene(new Scene(root));
+
+            // Configurer la fenêtre en tant que modal
+            stage.initModality(Modality.APPLICATION_MODAL);
+
+            // Afficher la fenêtre et attendre qu'elle se ferme
+            stage.show();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

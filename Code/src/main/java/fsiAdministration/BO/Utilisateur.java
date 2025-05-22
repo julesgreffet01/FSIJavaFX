@@ -4,7 +4,7 @@ public class Utilisateur {
 
     private int idUtilisateur;
     private String loginUtilisateur;
-    private String mdpUtilisateur;
+    private String  mdpUtilisateur;
 
     public Utilisateur( int idUtilisateur,String mdpUtilisateur, String loginUtilisateur) {
         this.mdpUtilisateur = mdpUtilisateur;

@@ -36,13 +36,8 @@ public class UtilisateurDAO extends DAO<Utilisateur>{
     public Utilisateur find(String login, String password) {
         Utilisateur user = new Utilisateur();
         try {
-            Class.forName("org.postgresql.Driver");
-            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FSI_GestionAdmin","postgres","EfaZynWu");
-//            Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5433/FSI_GestionAdmin","postgres","postgreSQL");
-
-
             String sql = "SELECT * FROM utilisateur WHERE loginUtilisateur =? and mdpUtilisateur=?";
-            PreparedStatement ps = connect.prepareStatement(sql);
+            PreparedStatement ps = this.connect.prepareStatement(sql);
             ps.setString(1, login);
             ps.setString(2, password);
             ResultSet result = ps.executeQuery();
@@ -58,8 +53,27 @@ public class UtilisateurDAO extends DAO<Utilisateur>{
         } catch (SQLException e) {
             return null;
         }
-        catch (ClassNotFoundException e) {
-            e.printStackTrace();
+        return user;
+    }
+
+    public Utilisateur connexion(String login, String password) {
+        Utilisateur user = new Utilisateur();
+        try {
+            String sql = "SELECT * FROM utilisateur WHERE loginUtilisateur =? and mdpUtilisateur=?";
+            PreparedStatement ps = this.connect.prepareStatement(sql);
+            ps.setString(1, login);
+            ps.setString(2, password);
+            ResultSet result = ps.executeQuery();
+            if(result.next()) {
+                user = new Utilisateur(
+                        result.getInt("idutilisateur"),
+                        null,
+                        result.getString("loginutilisateur"));
+            } else {
+                user = null;
+            }
+        } catch (SQLException e) {
+            return null;
         }
         return user;
     }

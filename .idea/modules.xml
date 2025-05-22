@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/P2026_2SIO_FSI_Administration.iml" filepath="$PROJECT_DIR$/.idea/modules/P2026_2SIO_FSI_Administration.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/P2026_2SIO_FSI_Administration.main.iml" filepath="$PROJECT_DIR$/.idea/modules/P2026_2SIO_FSI_Administration.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/P2026_2SIO_FSI_Administration.test.iml" filepath="$PROJECT_DIR$/.idea/modules/P2026_2SIO_FSI_Administration.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/FSIJAVAJX.iml" filepath="$PROJECT_DIR$/.idea/FSIJAVAJX.iml" />
     </modules>
   </component>
 </project>

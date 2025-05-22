@@ -9,7 +9,7 @@ public class DBManager {
 
     private static String user ="postgres";
 
-    private static String pass ="EfaZynWu";
+    private static String pass ="cannelle01";
 
     private static Connection connect;
 

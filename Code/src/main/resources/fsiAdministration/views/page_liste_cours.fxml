@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.QuadCurve?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fsiAdministration.controllers.AccueilController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="804.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fsiAdministration.controllers.ListeCoursController">
    <children>
-      <VBox layoutX="-1.0" prefHeight="48.0" prefWidth="729.0">
+      <VBox layoutX="-1.0" prefHeight="48.0" prefWidth="804.0">
          <children>
-            <MenuBar prefHeight="26.0" prefWidth="737.0">
+            <MenuBar prefHeight="26.0" prefWidth="799.0">
                <menus>
                   <Menu fx:id="gestionEtud" mnemonicParsing="false" text="Gestion étudiant">
                      <items>
@@ -45,21 +46,25 @@
             </MenuBar>
          </children>
       </VBox>
-      <QuadCurve controlX="-18.05954933166504" controlY="-94.0" endX="683.0" endY="178.0" fill="#006716" layoutX="50.0" layoutY="300.0" startX="-328.0" startY="178.00003051757812" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-      <Label fx:id="bienvenue" alignment="TOP_CENTER" layoutY="172.0" prefHeight="40.0" prefWidth="729.0" text="BIENVENUE" textFill="#024010">
-         <font>
-            <Font name="Franklin Gothic Medium" size="40.0" />
-         </font>
-      </Label>
-      <Label alignment="TOP_CENTER" layoutX="-1.0" layoutY="219.0" prefHeight="40.0" prefWidth="729.0" text="dans l'application de gestion administratif FSI" textFill="#799d43">
-         <font>
-            <Font name="Franklin Gothic Medium Cond" size="26.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="89.0" fitWidth="92.0" layoutX="41.0" layoutY="366.0">
-         <image>
-            <Image url="@../../../../../../../../../../../Downloads/PROJETPHP2SIO/FSI_logo.png" />
-         </image>
-      </ImageView>
+      <HBox alignment="CENTER" layoutX="-1.0" layoutY="345.0" prefHeight="100.0" prefWidth="729.0">
+         <children>
+            <Button fx:id="bRetour" mnemonicParsing="false" onAction="#bRetourClick" prefHeight="39.0" prefWidth="200.0" text="RETOUR" textFill="#024010">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <TableView fx:id="tvCours" layoutY="63.0" prefHeight="292.0" prefWidth="804.0">
+        <columns>
+          <TableColumn fx:id="tcLib" prefWidth="144.7999939918518" text="Libelle" />
+          <TableColumn fx:id="tcDesc" prefWidth="439.99998474121094" text="Description" />
+            <TableColumn fx:id="tcModif" prefWidth="110.0" text="Modifier" />
+            <TableColumn fx:id="tcSupp" prefWidth="110.0" text="Supprimer" />
+        </columns>
+      </TableView>
    </children>
 </Pane>

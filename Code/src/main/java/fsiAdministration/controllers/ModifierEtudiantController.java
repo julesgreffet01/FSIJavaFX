@@ -82,10 +82,35 @@ public class ModifierEtudiantController extends MenuController implements Initia
             EtudiantDAO etudDAO = new EtudiantDAO();
             boolean controle = etudDAO.update(newEtud);
             if(controle) {
-                tfNomEtud.clear();
-                tfPrenomEtud.clear();
-                lvSectionEtud.getSelectionModel().clearSelection();
-                datePickerNai.setValue(null);
+                Stage stageP = (Stage) bRetour.getScene().getWindow();
+                stageP.close();
+
+                try {
+
+                    // Charger le fichier FXML
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fsiAdministration/views/page_liste_etudiant.fxml"));
+                    Parent root = fxmlLoader.load();
+
+
+                    // Obtenir le contrôleur de la nouvelle fenetre
+                    ListeEtudiantController listeEtudiantController = fxmlLoader.getController();
+                    listeEtudiantController.setName(nameUti);
+
+                    // Créer une nouvelle fenêtre (Stage)
+                    Stage stage = new Stage();
+                    stage.setTitle("Liste etudiant");
+                    stage.setScene(new Scene(root));
+
+                    // Configurer la fenêtre en tant que modal
+                    stage.initModality(Modality.APPLICATION_MODAL);
+
+                    // Afficher la fenêtre et attendre qu'elle se ferme
+                    stage.show();
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         } else {
             try {
@@ -128,6 +153,7 @@ public class ModifierEtudiantController extends MenuController implements Initia
 
             // Obtenir le contrôleur de la nouvelle fenetre
             ListeEtudiantController listeEtudiantController = fxmlLoader.getController();
+            listeEtudiantController.setName(nameUti);
 
             // Créer une nouvelle fenêtre (Stage)
             Stage stage = new Stage();

@@ -17,8 +17,9 @@ public class MenuController {
 
 
     @FXML
-    protected MenuItem bListeEtud, bAjouterEtud, bListeSection, bAjouterSection, bQuitter, bAccueil;
+    protected MenuItem bListeEtud, bAjouterEtud, bListeSection, bAjouterSection, bQuitter, bAccueil, bListeCours, bAjouterCours;
 
+    protected String nameUti;
 
 
     @FXML
@@ -39,6 +40,8 @@ public class MenuController {
 
             // Obtenir le contrôleur de la nouvelle fenetre
             AccueilController accueilController = fxmlLoader.getController();
+            accueilController.setName(nameUti);
+            accueilController.setBienvenue();
 
             // Créer une nouvelle fenêtre (Stage)
             Stage stage = new Stage();
@@ -70,6 +73,7 @@ public class MenuController {
 
             // Obtenir le contrôleur de la nouvelle fenetre
             ListeEtudiantController listeEtudiantController = fxmlLoader.getController();
+            listeEtudiantController.setName(nameUti);
 
             // Créer une nouvelle fenêtre (Stage)
             Stage stage = new Stage();
@@ -99,6 +103,8 @@ public class MenuController {
 
             // Obtenir le contrôleur de la nouvelle fenetre
             AjouterEtudiantController ajouterEtudiantController = fxmlLoader.getController();
+            ajouterEtudiantController.setName(nameUti);
+
 
             // Créer une nouvelle fenêtre (Stage)
             Stage stage = new Stage();
@@ -120,6 +126,8 @@ public class MenuController {
 
     @FXML
     public void bListeSectionClick(ActionEvent event) {
+        Stage stageP = (Stage) ((MenuItem) event.getSource()).getParentPopup().getOwnerWindow();
+        stageP.close();
         try {
 
             // Charger le fichier FXML
@@ -128,7 +136,8 @@ public class MenuController {
 
 
             // Obtenir le contrôleur de la nouvelle fenetre
-            ListeEtudiantController abc = fxmlLoader.getController();
+            ListeEtudiantController listeEtu = fxmlLoader.getController();
+            listeEtu.setName(nameUti);
 
             // Créer une nouvelle fenêtre (Stage)
             Stage stage = new Stage();
@@ -149,4 +158,72 @@ public class MenuController {
 
     @FXML
     public void bAjouterSectionClick(ActionEvent event) {}
+
+    @FXML
+    public void bListeCoursClick(ActionEvent event) {
+        Stage stageP = (Stage) ((MenuItem) event.getSource()).getParentPopup().getOwnerWindow();
+        stageP.close();
+        try {
+
+            // Charger le fichier FXML
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fsiAdministration/views/page_liste_cours.fxml"));
+            Parent root = fxmlLoader.load();
+
+
+            // Obtenir le contrôleur de la nouvelle fenetre
+            ListeCoursController listeCoursController = fxmlLoader.getController();
+            listeCoursController.setName(nameUti);
+
+            // Créer une nouvelle fenêtre (Stage)
+            Stage stage = new Stage();
+            stage.setTitle("Liste etudiant");
+            stage.setScene(new Scene(root));
+
+            // Configurer la fenêtre en tant que modal
+            stage.initModality(Modality.APPLICATION_MODAL);
+
+            // Afficher la fenêtre et attendre qu'elle se ferme
+            stage.show();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setName(String nameUti) {
+        this.nameUti = nameUti;
+    }
+
+    @FXML
+    public void bAjouterCoursClick(ActionEvent event) {
+        Stage stageP = (Stage) ((MenuItem) event.getSource()).getParentPopup().getOwnerWindow();
+        stageP.close();
+        try {
+
+            // Charger le fichier FXML
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fsiAdministration/views/page_ajout_cours.fxml"));
+            Parent root = fxmlLoader.load();
+
+
+            // Obtenir le contrôleur de la nouvelle fenetre
+            AjouterCoursController ajouterCoursController = fxmlLoader.getController();
+            ajouterCoursController.setName(nameUti);
+
+            // Créer une nouvelle fenêtre (Stage)
+            Stage stage = new Stage();
+            stage.setTitle("Liste etudiant");
+            stage.setScene(new Scene(root));
+
+            // Configurer la fenêtre en tant que modal
+            stage.initModality(Modality.APPLICATION_MODAL);
+
+            // Afficher la fenêtre et attendre qu'elle se ferme
+            stage.show();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

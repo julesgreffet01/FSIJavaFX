@@ -89,6 +89,8 @@ public class ListeEtudiantController extends MenuController implements Initializ
             Parent root = fxmlLoader.load();
 
             AccueilController accueilController = fxmlLoader.getController();
+            accueilController.setName(nameUti);
+            accueilController.setBienvenue();
 
             // Créer une nouvelle fenêtre (Stage)
             Stage stage = new Stage();
@@ -107,9 +109,8 @@ public class ListeEtudiantController extends MenuController implements Initializ
     }
 
     private void addButtonModifierToTable() {
-        tcModifier.setCellFactory(col -> new TableCell<>() {
+        tcModifier.setCellFactory(column -> new TableCell<>() {
             private final Button btn = new Button("Modifier");
-
             {
                 btn.setOnAction(event -> {
                     Etudiant etudiant = getTableView().getItems().get(getIndex());
@@ -122,16 +123,14 @@ public class ListeEtudiantController extends MenuController implements Initializ
 
                         ModifierEtudiantController modifierEtudiantController = fxmlLoader.getController();
                         modifierEtudiantController.setAttributs(etudiant);
+                        modifierEtudiantController.setName(nameUti);
 
-                        // Créer une nouvelle fenêtre (Stage)
                         Stage stage = new Stage();
                         stage.setTitle("Modification etudiant");
                         stage.setScene(new Scene(root));
 
-                        // Configurer la fenêtre en tant que modal
                         stage.initModality(Modality.APPLICATION_MODAL);
 
-                        // Afficher la fenêtre et attendre qu'elle se ferme
                         stage.show();
                     }  catch (Exception e) {
                         e.printStackTrace();
@@ -148,14 +147,15 @@ public class ListeEtudiantController extends MenuController implements Initializ
     }
 
     private void addButtonSupprimerToTable() {
-        tcSupprimer.setCellFactory(col -> new TableCell<>() {
+        tcSupprimer.setCellFactory(column -> new TableCell<>() {
             private final Button btn = new Button("Supprimer");
 
             {
                 btn.setOnAction(event -> {
                     Etudiant etudiant = getTableView().getItems().get(getIndex());
                     tvEtudiants.getItems().remove(etudiant);
-                    new EtudiantDAO().delete(etudiant);
+                    EtudiantDAO etudDAO = new EtudiantDAO();
+                    etudDAO.delete(etudiant);
                 });
             }
 

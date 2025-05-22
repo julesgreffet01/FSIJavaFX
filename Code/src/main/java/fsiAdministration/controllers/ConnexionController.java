@@ -61,6 +61,7 @@ public class ConnexionController implements Initializable {
                 // Obtenir le contrôleur de la nouvelle fenetre
                 AccueilController accueilController = fxmlLoader.getController();
                 accueilController.setName(name);
+                accueilController.setBienvenue();
 
                 // Créer une nouvelle fenêtre (Stage)
                 Stage stage = new Stage();

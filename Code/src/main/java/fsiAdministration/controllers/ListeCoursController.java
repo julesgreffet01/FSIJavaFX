@@ -49,6 +49,7 @@ public class ListeCoursController extends MenuController implements Initializabl
         ObservableList<Cours> data = getCoursList();
         tvCours.setItems(data);
         btnModif();
+        btnSupp();
     }
 
     private ObservableList<Cours> getCoursList() {
@@ -114,6 +115,25 @@ public class ListeCoursController extends MenuController implements Initializabl
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+                });
+            }
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                setGraphic(empty ? null : button);
+            }
+        });
+    }
+
+    public void btnSupp(){
+        tcSupp.setCellFactory(col -> new TableCell<>() {
+            private final Button button = new Button("Supprimer");
+            {
+                button.setOnAction(event -> {
+                    Cours cours = getTableView().getItems().get(getIndex());
+                    tvCours.getItems().remove(cours);
+                    CoursDAO coursDAO = new CoursDAO();
+                    coursDAO.delete(cours);
                 });
             }
             @Override

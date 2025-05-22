@@ -32,12 +32,39 @@ public class CoursDAO extends DAO<Cours>{
 
     @Override
     public boolean delete(Cours obj) {
-        return false;
+        boolean result = false;
+        String sql = "DELETE FROM cours WHERE idCours = ?";
+        try {
+            PreparedStatement statement = this.connect.prepareStatement(sql);
+            statement.setInt(1,obj.getId());
+            int rowsInserer = statement.executeUpdate();
+            if (rowsInserer > 0) {
+                result = true;
+            }
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+        return result;
     }
 
     @Override
     public boolean update(Cours obj) {
-        return false;
+        boolean result = false;
+        String sql = "UPDATE Cours SET libellecours=?, descriptioncours=?, idSection=? WHERE idCours= ?";
+        try {
+            PreparedStatement ps = this.connect.prepareStatement(sql);
+            ps.setString(1, obj.getLib());
+            ps.setString(2, obj.getDesc());
+            ps.setInt(3, obj.getIdSection());
+            ps.setInt(4, obj.getId());
+            int rowsInserer = ps.executeUpdate();
+            if (rowsInserer > 0) {
+                result = true;
+            }
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+        return result;
     }
 
     @Override

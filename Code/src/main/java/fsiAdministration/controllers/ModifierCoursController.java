@@ -26,6 +26,7 @@ public class ModifierCoursController extends MenuController implements Initializ
 
     @FXML
     private ListView<Section> lvSectionCours;
+    private Integer idCours;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -47,11 +48,14 @@ public class ModifierCoursController extends MenuController implements Initializ
         tfLibCours.setText(cours.getLib());
         tfDescCours.setText(cours.getDesc());
         lvSectionCours.getSelectionModel().select(cours.getIdSection() - 1);
+        this.idCours = cours.getIdSection();
     }
 
     @FXML
     public void bEnregistrerClick(ActionEvent event) {
-
+        String lib = tfLibCours.getText();
+        String desc = tfDescCours.getText();
+        Section section = lvSectionCours.getSelectionModel().getSelectedItem();
     }
 
     @FXML

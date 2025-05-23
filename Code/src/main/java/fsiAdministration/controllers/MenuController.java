@@ -150,7 +150,29 @@ public class MenuController {
     }
 
     @FXML
-    public void bAjouterSectionClick(ActionEvent event) {}
+    public void bAjouterSectionClick(ActionEvent event) {
+        Stage stageP = (Stage) ((MenuItem) event.getSource()).getParentPopup().getOwnerWindow();
+        stageP.close();
+        try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fsiAdministration/views/page_ajout_section.fxml"));
+            Parent root = fxmlLoader.load();
+
+            AjouterSectionController ajouterSectionController = fxmlLoader.getController();
+            ajouterSectionController.setName(nameUti);
+
+            Stage stage = new Stage();
+            stage.setTitle("Ajout d'une Section");
+            stage.setScene(new Scene(root));
+
+            stage.initModality(Modality.APPLICATION_MODAL);
+
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     public void bListeCoursClick(ActionEvent event) {

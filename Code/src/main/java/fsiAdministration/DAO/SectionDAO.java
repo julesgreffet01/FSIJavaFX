@@ -18,11 +18,9 @@ public class SectionDAO extends DAO<Section>{
     public boolean create(Section obj) {
             boolean result = false;
             try {
-                String query = "INSERT INTO Section (idSection, LibelleSection) VALUES (?,?);";
+                String query = "INSERT INTO Section ( LibelleSection) VALUES (?);";
                 PreparedStatement preparedStatement = this.connect.prepareStatement(query);
-
-                preparedStatement.setInt(1, obj.getIdSection());
-                preparedStatement.setString(2, obj.getLibelleSection());
+                preparedStatement.setString(1, obj.getLibelleSection());
                 int rows = preparedStatement.executeUpdate();
                 if (rows > 0){
                     result=true;
@@ -54,8 +52,8 @@ public class SectionDAO extends DAO<Section>{
         String query = "UPDATE Section SET LibelleSection = ? WHERE idSection = ?;";
         try {
             PreparedStatement preparedStatement = this.connect.prepareStatement(query);
-            preparedStatement.setInt(1, obj.getIdSection());
-            preparedStatement.setString(2, obj.getLibelleSection());
+            preparedStatement.setString(1, obj.getLibelleSection());
+            preparedStatement.setInt(2, obj.getIdSection());
             int rows = preparedStatement.executeUpdate();
             if (rows > 0){
                 result=true;

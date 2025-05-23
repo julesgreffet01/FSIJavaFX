@@ -133,20 +133,21 @@ public class ListeSectionController extends MenuController implements Initializa
                     stageP.close();
 
                     try {
-                        //FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fsiAdministration/views/page_liste_section.fxml"));
-//                        Parent root = fxmlLoader.load();
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fsiAdministration/views/page_modif_section.fxml"));
+                        Parent root = fxmlLoader.load();
 
-//                        ModifierEtudiantController modifierEtudiantController = fxmlLoader.getController();
-//                        modifierEtudiantController.setAttributs(etudiant);
-//                        modifierEtudiantController.setName(nameUti);
+                        ModifierSectionController modifierSectionController = fxmlLoader.getController();
+                        modifierSectionController.setIdSec(section.getIdSection());
+                        modifierSectionController.setAttrinuts();
+                        modifierSectionController.setName(nameUti);
 
-//                        Stage stage = new Stage();
-//                        stage.setTitle("Modification etudiant");
-//                        stage.setScene(new Scene(root));
+                        Stage stage = new Stage();
+                        stage.setTitle("Modification section");
+                        stage.setScene(new Scene(root));
 
-//                        stage.initModality(Modality.APPLICATION_MODAL);
-//
-//                        stage.show();
+                        stage.initModality(Modality.APPLICATION_MODAL);
+
+                        stage.show();
                     }  catch (Exception e) {
                         e.printStackTrace();
                     }

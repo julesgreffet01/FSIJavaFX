@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="173.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fsiAdministration.controllers.PopupSectionController">
+   <children>
+      <Text fill="#e10707" layoutX="46.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Il reste des etudiants et/ou des cours dans cette section" textAlignment="CENTER" wrappingWidth="241.48491668701172">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Button fx:id="bPopupSec" layoutX="151.0" layoutY="134.0" mnemonicParsing="false" onAction="#bPopupSecClick" text="OK" />
+   </children>
+</Pane>

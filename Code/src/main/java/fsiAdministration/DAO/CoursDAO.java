@@ -116,4 +116,20 @@ public class CoursDAO extends DAO<Cours>{
         }
         return mesCours;
     }
+
+    public int getNbCoursBySection(int idSection) {
+        int nbCours = 0;
+        try {
+            String sql = "Select Count(*) from Cours where idSection = ?";
+            PreparedStatement ps = this.connect.prepareStatement(sql);
+            ps.setInt(1,idSection);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                nbCours = rs.getInt(1);
+            }
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+        return nbCours;
+    }
 }

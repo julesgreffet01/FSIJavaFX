@@ -2,6 +2,7 @@ package fsiAdministration.controllers;
 
 import fsiAdministration.BO.Etudiant;
 import fsiAdministration.BO.Section;
+import fsiAdministration.DAO.CoursDAO;
 import fsiAdministration.DAO.EtudiantDAO;
 import fsiAdministration.DAO.SectionDAO;
 import javafx.collections.FXCollections;
@@ -47,6 +48,7 @@ public class ListeSectionController extends MenuController implements Initializa
         tvSection.setItems(data);
         btnModif();
         btnVp();
+        btnSupp();
     }
 
     private ObservableList<Section> getSection() {
@@ -154,6 +156,52 @@ public class ListeSectionController extends MenuController implements Initializa
                 });
             }
 
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                setGraphic(empty ? null : btn);
+            }
+        });
+    }
+
+    private void btnSupp() {
+        tcSupp.setCellFactory(col -> new TableCell<Section, Void>() {
+            private Button btn = new Button("Supprimer");
+            {
+                btn.setOnAction(event -> {
+                    Section section = getTableView().getItems().get(getIndex());
+                    EtudiantDAO etudiantDAO = new EtudiantDAO();
+                    CoursDAO coursDAO = new CoursDAO();
+                    if(etudiantDAO.getNbEtuByIdSection(section.getIdSection()) >= 1 || coursDAO.getNbCoursBySection(section.getIdSection()) >= 1){
+                        try {
+                            // Charger le fichier FXML
+                            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fsiAdministration/views/popup_section.fxml"));
+                            Parent root = fxmlLoader.load();
+
+
+                            // Obtenir le contrôleur de la nouvelle fenetre
+                            PopupSectionController popupSectionController = fxmlLoader.getController();
+
+                            // Créer une nouvelle fenêtre (Stage)
+                            Stage stage = new Stage();
+                            stage.setTitle("Pop-up");
+                            stage.setScene(new Scene(root));
+
+                            // Configurer la fenêtre en tant que modal
+                            stage.initModality(Modality.APPLICATION_MODAL);
+
+                            // Afficher la fenêtre et attendre qu'elle se ferme
+                            stage.show();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        tvSection.getItems().remove(section);
+                        SectionDAO sectionDAO = new SectionDAO();
+                        sectionDAO.delete(section);
+                    }
+                });
+            }
             @Override
             protected void updateItem(Void item, boolean empty) {
                 super.updateItem(item, empty);

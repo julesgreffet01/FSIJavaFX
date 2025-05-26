@@ -167,5 +167,4 @@ public class ListeEtudiantController extends MenuController implements Initializ
         });
     }
 
-
 }

@@ -90,7 +90,29 @@ public class CoursDAO extends DAO<Cours>{
                 mesCours.add(cours);
             }
         } catch (SQLException e) {
-            return null;
+            e.printStackTrace();
+        }
+        return mesCours;
+    }
+
+    public List<Cours> getAllBySection(int idSection) {
+        List<Cours> mesCours = new ArrayList<>();
+        try {
+            String sql = "select * from cours where idSection = ?";
+            PreparedStatement ps = this.connect.prepareStatement(sql);
+            ps.setInt(1, idSection);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                Cours cours = new Cours(
+                        rs.getInt("idCours"),
+                        rs.getString("libelleCours"),
+                        rs.getString("DescriptionCours"),
+                        rs.getInt("idSection")
+                );
+                mesCours.add(cours);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return mesCours;
     }

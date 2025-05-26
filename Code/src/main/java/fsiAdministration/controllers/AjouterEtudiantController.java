@@ -108,7 +108,7 @@ public class AjouterEtudiantController extends MenuController implements Initial
                 datePickerNai.setValue(null);
             }
         } else {
-            try {
+                try {
                 // Charger le fichier FXML
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fsiAdministration/views/popup_ajout_etu.fxml"));
                 Parent root = fxmlLoader.load();

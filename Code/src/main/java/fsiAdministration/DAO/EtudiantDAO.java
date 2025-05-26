@@ -1,6 +1,7 @@
 package fsiAdministration.DAO;
 
 import fsiAdministration.BO.Etudiant;
+import fsiAdministration.BO.Section;
 import fsiAdministration.BO.Utilisateur;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -94,7 +95,25 @@ public class EtudiantDAO extends DAO<Etudiant>{
 
     @Override
     public Etudiant find(int id) {
-        return null;
+        Etudiant etudiant = null;
+        String query = "SELECT * FROM Etudiant WHERE idEtudiant = ?;";
+        try {
+            PreparedStatement ps = this.connect.prepareStatement(query);
+            ps.setInt(1, id);
+            ResultSet resultSet = ps.executeQuery();
+            if(resultSet.next()){
+                etudiant = new Etudiant(
+                        resultSet.getInt("idEtudiant"),
+                        resultSet.getString("nomEtudiant"),
+                        resultSet.getString("prenomEtudiant"),
+                        resultSet.getInt("idSection"),
+                        resultSet.getDate("dateNaiEtu")
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return etudiant;
     }
 
     @Override

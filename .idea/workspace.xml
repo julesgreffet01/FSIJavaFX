@@ -4,39 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d94e5b3-9d78-474d-acd5-02184cbccb15" name="Changes" comment="ALED">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_checkerframework_checker_qual_3_42_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_5_10_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_api_5_10_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_engine_5_10_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_params_5_10_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_platform_junit_platform_commons_1_10_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_platform_junit_platform_engine_1_10_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_opentest4j_opentest4j_1_3_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_postgresql_postgresql_42_7_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/P2026_2SIO_FSI_Administration.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/main/java/fsiAdministration/DAO/DBManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Code/src/main/java/fsiAdministration/DAO/DBManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/ErreurConnexion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/ErreurConnexion.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/page_accueil.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/page_accueil.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/page_ajout_cours.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/page_ajout_cours.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/page_ajout_etudiant.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/page_ajout_etudiant.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/page_ajout_section.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/page_ajout_section.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/page_liste_cours.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/page_liste_cours.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/page_liste_etudiant.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/page_liste_etudiant.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/page_liste_section.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/page_liste_section.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/page_modif-etu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/page_modif-etu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/page_modif_cours.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/page_modif_cours.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/page_modif_section.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/page_modif_section.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/page_voir_plus_sections.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/page_voir_plus_sections.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/popup_ajout_etu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/popup_ajout_etu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/popup_section.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Code/src/main/resources/fsiAdministration/views/popup_section.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="1d94e5b3-9d78-474d-acd5-02184cbccb15" name="Changes" comment="ALED" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -177,6 +145,7 @@
       <workItem from="1747914920971" duration="3038000" />
       <workItem from="1748244415225" duration="8868000" />
       <workItem from="1748324761506" duration="2782000" />
+      <workItem from="1748327753162" duration="130000" />
     </task>
     <task id="LOCAL-00001" summary="Espece de bouffons">
       <option name="closed" value="true" />
@@ -242,7 +211,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747915012933</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="ALED">
+      <option name="closed" value="true" />
+      <created>1748327868266</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1748327868266</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

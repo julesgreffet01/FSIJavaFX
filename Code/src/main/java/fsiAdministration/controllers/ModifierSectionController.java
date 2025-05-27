@@ -44,7 +44,7 @@ public class ModifierSectionController extends MenuController implements Initial
 
     @FXML
     private void bRetourClick(ActionEvent event) {
-        Stage stageP = (Stage) ((MenuItem) event.getSource()).getParentPopup().getOwnerWindow();
+        Stage stageP = (Stage) bRetour.getScene().getWindow();
         stageP.close();
         try {
 

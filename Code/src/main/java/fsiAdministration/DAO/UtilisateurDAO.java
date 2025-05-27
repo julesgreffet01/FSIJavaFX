@@ -3,6 +3,7 @@ package fsiAdministration.DAO;
 import fsiAdministration.BO.Utilisateur;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UtilisateurDAO extends DAO<Utilisateur>{
@@ -10,28 +11,85 @@ public class UtilisateurDAO extends DAO<Utilisateur>{
 
     @Override
     public boolean create(Utilisateur obj) {
-        return false;
+        boolean result = false;
+        try {
+            String sql = "Insert into Utilisateur(loginUtilisateur, mdpUtilisateur) VALUES(?,?)";
+            PreparedStatement ps = this.connect.prepareStatement(sql);
+            ps.setString(1, obj.getLoginUtilisateur());
+            ps.setString(2, obj.getMdpUtilisateur());
+            int rowsInserer = ps.executeUpdate();
+            if (rowsInserer > 0) {
+                result = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     @Override
     public boolean delete(Utilisateur obj) {
-        return false;
+        boolean result = false;
+        try {
+            String sql = "Delete from Utilisateur where idUtilisateur = ?";
+            PreparedStatement ps = this.connect.prepareStatement(sql);
+            ps.setInt(1, obj.getIdUtilisateur());
+
+            int rowsInserer = ps.executeUpdate();
+            if (rowsInserer > 0) {
+                result = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     @Override
     public boolean update(Utilisateur obj) {
-        return false;
+        boolean result = false;
+        try {
+            String sql = "Update Utilisateur SET loginUtilisateur=?, mdpUtilisateur=? WHERE idUtilisateur = ?";
+            PreparedStatement ps = this.connect.prepareStatement(sql);
+            ps.setString(1, obj.getLoginUtilisateur());
+            ps.setString(2, obj.getMdpUtilisateur());
+            ps.setInt(3, obj.getIdUtilisateur());
+            int rowsInserer = ps.executeUpdate();
+            if (rowsInserer > 0) {
+                result = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
 
     @Override
     public List<Utilisateur> findAll() {
-        return List.of();
+        List<Utilisateur> mesUtis = new ArrayList<>();
+        Utilisateur uti;
+        try {
+            String sql = "Select * from Utilisateur";
+            Statement statement = this.connect.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+            while(rs.next()) {
+                uti = new Utilisateur(
+                        rs.getInt("idUtilisateur"),
+                        null,
+                        rs.getString("loginUtilisateur")
+                );
+                mesUtis.add(uti);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return mesUtis;
     }
 
     @Override
     public Utilisateur find(int idEtu) {
-        Utilisateur user = new Utilisateur();
+        Utilisateur user;
         try {
             String sql = "SELECT * FROM utilisateur WHERE idetudiant = ?";
             PreparedStatement ps = this.connect.prepareStatement(sql);
@@ -53,7 +111,7 @@ public class UtilisateurDAO extends DAO<Utilisateur>{
     }
 
     public Utilisateur connexion(String login, String password) {
-        Utilisateur user = new Utilisateur();
+        Utilisateur user = null;
         try {
             String sql = "SELECT * FROM utilisateur WHERE loginUtilisateur =? and mdpUtilisateur=?";
             PreparedStatement ps = this.connect.prepareStatement(sql);
@@ -65,8 +123,6 @@ public class UtilisateurDAO extends DAO<Utilisateur>{
                         result.getInt("idutilisateur"),
                         null,
                         result.getString("loginutilisateur"));
-            } else {
-                user = null;
             }
         } catch (SQLException e) {
             return null;

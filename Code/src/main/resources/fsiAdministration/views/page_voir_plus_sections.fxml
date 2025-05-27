@@ -8,34 +8,64 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="477.0" prefWidth="737.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fsiAdministration.controllers.VoirPlusSectionController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="477.0" prefWidth="737.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fsiAdministration.controllers.VoirPlusSectionController">
    <children>
-      <MenuBar layoutY="1.0" prefHeight="26.0" prefWidth="737.0">
+      <MenuBar layoutY="1.0" prefHeight="26.0" prefWidth="711.0">
          <menus>
             <Menu fx:id="gestionEtud" mnemonicParsing="false" text="Gestion étudiant">
+               <graphic>
+                  <ImageView fitHeight="16" fitWidth="16">
+                     <image>
+                        <Image url="@../images/graduation-cap.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
                <items>
-                  <MenuItem fx:id="bListeEtud" mnemonicParsing="false" onAction="#bListEtudClick" text="liste étudiant" />
-                  <MenuItem fx:id="bAjouterEtud" mnemonicParsing="false" onAction="#bAjouterEtudClick" text="ajouter un étudiant" />
+                  <MenuItem fx:id="bListeEtud" mnemonicParsing="false" onAction="#bListEtudClick" text="Liste étudiant" />
+                  <MenuItem fx:id="bAjouterEtud" mnemonicParsing="false" onAction="#bAjouterEtudClick" text="Ajouter un étudiant" />
                </items>
             </Menu>
             <Menu fx:id="gestionSection" mnemonicParsing="false" text="Gestion section">
+               <graphic>
+                  <ImageView fitHeight="16" fitWidth="16">
+                     <image>
+                        <Image url="@../images/users-alt.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
                <items>
                   <MenuItem fx:id="bListeSection" mnemonicParsing="false" onAction="#bListeSectionClick" text="Liste des sections" />
-                  <MenuItem fx:id="bAjouterSection" mnemonicParsing="false" onAction="#bAjouterSectionClick" text="ajouter une section" />
+                  <MenuItem fx:id="bAjouterSection" mnemonicParsing="false" onAction="#bAjouterSectionClick" text="Ajouter une section" />
                </items>
             </Menu>
             <Menu fx:id="gestionCours" mnemonicParsing="false" text="Gestion cours">
+               <graphic>
+                  <ImageView fitHeight="16" fitWidth="16">
+                     <image>
+                        <Image url="@../images/book-alt.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
                <items>
-                  <MenuItem fx:id="bListeCours" mnemonicParsing="false" onAction="#bListeCoursClick" text="liste cours" />
-                  <MenuItem fx:id="bAjouterCours" mnemonicParsing="false" onAction="#bAjouterCoursClick" text="ajouter un cours" />
+                  <MenuItem fx:id="bListeCours" mnemonicParsing="false" onAction="#bListeCoursClick" text="Liste cours" />
+                  <MenuItem fx:id="bAjouterCours" mnemonicParsing="false" onAction="#bAjouterCoursClick" text="Ajouter un cours" />
                </items>
             </Menu>
             <Menu fx:id="bAutres" mnemonicParsing="false" text="Autres">
+               <graphic>
+                  <ImageView fitHeight="16" fitWidth="16">
+                     <image>
+                        <Image url="@../images/info.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
                <items>
                   <MenuItem fx:id="bAccueil" mnemonicParsing="false" onAction="#bAccueilClick" text="Accueil" />
                   <MenuItem fx:id="bQuitter" mnemonicParsing="false" onAction="#bQuitterClick" text="Quitter" />
@@ -71,10 +101,13 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="350.0" layoutY="37.0" prefHeight="35.0" prefWidth="359.0" text="COURS" textAlignment="CENTER" textFill="#024010">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="356.0" layoutY="37.0" prefHeight="35.0" prefWidth="359.0" text="COURS" textAlignment="CENTER" textFill="#024010">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#01a321" height="5.0" layoutX="49.0" layoutY="67.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="310.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#01a321" height="5.0" layoutX="381.0" layoutY="67.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="310.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#01a321" height="5.0" layoutX="214.0" layoutY="388.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="310.0" />
    </children>
 </Pane>

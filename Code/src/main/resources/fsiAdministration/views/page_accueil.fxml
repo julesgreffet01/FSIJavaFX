@@ -15,27 +15,55 @@
    <children>
       <VBox layoutX="-1.0" prefHeight="48.0" prefWidth="729.0">
          <children>
-            <MenuBar prefHeight="26.0" prefWidth="737.0">
+            <MenuBar layoutY="1.0" prefHeight="26.0" prefWidth="711.0">
                <menus>
                   <Menu fx:id="gestionEtud" mnemonicParsing="false" text="Gestion étudiant">
+                     <graphic>
+                        <ImageView fitWidth="16" fitHeight="16">
+                           <image>
+                              <Image url="@../images/graduation-cap.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                      <items>
-                        <MenuItem fx:id="bListeEtud" mnemonicParsing="false" onAction="#bListEtudClick" text="liste étudiant" />
-                        <MenuItem fx:id="bAjouterEtud" mnemonicParsing="false" onAction="#bAjouterEtudClick" text="ajouter un étudiant" />
+                        <MenuItem fx:id="bListeEtud" mnemonicParsing="false" onAction="#bListEtudClick" text="Liste étudiant" />
+                        <MenuItem fx:id="bAjouterEtud" mnemonicParsing="false" onAction="#bAjouterEtudClick" text="Ajouter un étudiant" />
                      </items>
                   </Menu>
                   <Menu fx:id="gestionSection" mnemonicParsing="false" text="Gestion section">
+                     <graphic>
+                        <ImageView fitWidth="16" fitHeight="16">
+                           <image>
+                              <Image url="@../images/users-alt.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                      <items>
                         <MenuItem fx:id="bListeSection" mnemonicParsing="false" onAction="#bListeSectionClick" text="Liste des sections" />
-                        <MenuItem fx:id="bAjouterSection" mnemonicParsing="false" onAction="#bAjouterSectionClick" text="ajouter une section" />
+                        <MenuItem fx:id="bAjouterSection" mnemonicParsing="false" onAction="#bAjouterSectionClick" text="Ajouter une section" />
                      </items>
                   </Menu>
                   <Menu fx:id="gestionCours" mnemonicParsing="false" text="Gestion cours">
+                     <graphic>
+                        <ImageView fitWidth="16" fitHeight="16">
+                           <image>
+                              <Image url="@../images/book-alt.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                      <items>
-                        <MenuItem fx:id="bListeCours" mnemonicParsing="false" onAction="#bListeCoursClick" text="liste cours" />
-                        <MenuItem fx:id="bAjouterCours" mnemonicParsing="false" onAction="#bAjouterCoursClick" text="ajouter un cours" />
+                        <MenuItem fx:id="bListeCours" mnemonicParsing="false" onAction="#bListeCoursClick" text="Liste cours" />
+                        <MenuItem fx:id="bAjouterCours" mnemonicParsing="false" onAction="#bAjouterCoursClick" text="Ajouter un cours" />
                      </items>
                   </Menu>
                   <Menu fx:id="bAutres" mnemonicParsing="false" text="Autres">
+                     <graphic>
+                        <ImageView fitWidth="16" fitHeight="16">
+                           <image>
+                              <Image url="@../images/info.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                      <items>
                         <MenuItem fx:id="bAccueil" mnemonicParsing="false" onAction="#bAccueilClick" text="Accueil" />
                         <MenuItem fx:id="bQuitter" mnemonicParsing="false" onAction="#bQuitterClick" text="Quitter" />
@@ -58,7 +86,7 @@
       </Label>
       <ImageView fitHeight="89.0" fitWidth="92.0" layoutX="41.0" layoutY="366.0">
          <image>
-            <Image url="@../../../../../../../../../../../Downloads/PROJETPHP2SIO/FSI_logo.png" />
+            <Image url="@../images/FSI_logo.png" />
          </image>
       </ImageView>
    </children>

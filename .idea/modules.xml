@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/FSIJAVAJX.iml" filepath="$PROJECT_DIR$/.idea/FSIJAVAJX.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/P2026_2SIO_FSI_Administration.main.iml" filepath="$PROJECT_DIR$/.idea/modules/P2026_2SIO_FSI_Administration.main.iml" />
     </modules>
   </component>
 </project>

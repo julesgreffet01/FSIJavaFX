@@ -36,8 +36,6 @@ public class ConnexionController implements Initializable {
         String login = tfLogin.getText();
         String mdp = tfMDP.getText();
 
-        System.out.println(login);
-
         UtilisateurDAO userDAO = new UtilisateurDAO();
         Utilisateur user = userDAO.connexion(login, mdp);
         if (user != null) {

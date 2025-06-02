@@ -137,7 +137,7 @@ public class MenuController {
             listeSectionController.setName(nameUti);
 
             Stage stage = new Stage();
-            stage.setTitle("Liste etudiant");
+            stage.setTitle("Liste section");
             stage.setScene(new Scene(root));
 
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -191,7 +191,7 @@ public class MenuController {
 
             // Créer une nouvelle fenêtre (Stage)
             Stage stage = new Stage();
-            stage.setTitle("Liste etudiant");
+            stage.setTitle("Liste cours");
             stage.setScene(new Scene(root));
 
             // Configurer la fenêtre en tant que modal
@@ -227,7 +227,7 @@ public class MenuController {
 
             // Créer une nouvelle fenêtre (Stage)
             Stage stage = new Stage();
-            stage.setTitle("Liste etudiant");
+            stage.setTitle("Ajout d'un cours");
             stage.setScene(new Scene(root));
 
             // Configurer la fenêtre en tant que modal

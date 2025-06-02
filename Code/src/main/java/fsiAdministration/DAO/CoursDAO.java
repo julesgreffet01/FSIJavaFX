@@ -1,6 +1,7 @@
 package fsiAdministration.DAO;
 
 import fsiAdministration.BO.Cours;
+import fsiAdministration.BO.Etudiant;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -69,7 +70,23 @@ public class CoursDAO extends DAO<Cours>{
 
     @Override
     public Cours find(int id) {
-        return null;
+        Cours cours = null;
+        String query = "SELECT * FROM Cours WHERE idCours = ?;";        try {
+            PreparedStatement ps = this.connect.prepareStatement(query);
+            ps.setInt(1, id);
+            ResultSet resultSet = ps.executeQuery();
+            if(resultSet.next()){
+                cours = new Cours(
+                        resultSet.getInt("idCours"),
+                        resultSet.getString("libelleCours"),
+                        resultSet.getString("descriptionCours"),
+                        resultSet.getInt("idSection")
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return cours;
     }
 
     @Override

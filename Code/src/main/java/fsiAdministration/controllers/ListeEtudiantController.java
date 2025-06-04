@@ -157,6 +157,7 @@ public class ListeEtudiantController extends MenuController implements Initializ
                     EtudiantDAO etudDAO = new EtudiantDAO();
                     etudDAO.delete(etudiant);
                 });
+                //btn.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white;");
             }
 
             @Override

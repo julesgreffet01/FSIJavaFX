@@ -62,7 +62,6 @@ public class VoirPlusSectionController extends MenuController implements Initial
         List<Etudiant> mesEtud = etudDAO.getAllBySection(this.idSection);
 
         ObservableList<Etudiant> list = FXCollections.observableArrayList(mesEtud);
-        System.out.println(mesEtud);
         return list;
     }
 
@@ -71,7 +70,6 @@ public class VoirPlusSectionController extends MenuController implements Initial
         List<Cours> mesCours = coursDAO.getAllBySection(this.idSection);
 
         ObservableList<Cours> list = FXCollections.observableArrayList(mesCours);
-        System.out.println(mesCours);
         return list;
     }
 

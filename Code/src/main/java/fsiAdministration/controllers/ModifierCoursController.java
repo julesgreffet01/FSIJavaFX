@@ -54,7 +54,7 @@ public class ModifierCoursController extends MenuController implements Initializ
         tfLibCours.setText(cours.getLib());
         tfDescCours.setText(cours.getDesc());
         lvSectionCours.getSelectionModel().select(cours.getIdSection() - 1);
-        this.idCours = cours.getIdSection();
+        this.idCours = cours.getId();
     }
 
     @FXML
@@ -65,6 +65,7 @@ public class ModifierCoursController extends MenuController implements Initializ
         if(lib != null && desc != null && !lib.trim().isEmpty() && !desc.trim().isEmpty() && selected != null) {
             int idSection = selected.getIdSection();
             Cours newCours = new Cours(idCours, lib, desc, idSection);
+            System.out.println(idCours);
 
             CoursDAO coursDAO = new CoursDAO();
             boolean controle = coursDAO.update(newCours);

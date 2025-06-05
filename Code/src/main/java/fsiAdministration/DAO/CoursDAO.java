@@ -94,7 +94,7 @@ public class CoursDAO extends DAO<Cours>{
         List<Cours> mesCours = new ArrayList<>();
         Cours cours;
         try {
-            String sql = "select * from cours";
+            String sql = "select * from cours ORDER BY idCours;";
             Statement ps = this.connect.createStatement();
             ResultSet rs = ps.executeQuery(sql);
             while(rs.next()) {

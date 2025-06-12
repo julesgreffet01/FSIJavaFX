@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.QuadCurve?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fsiAdministration.controllers.AccueilController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fsiAdministration.controllers.AccueilController">
    <children>
       <VBox layoutX="-1.0" prefHeight="48.0" prefWidth="729.0">
          <children>
@@ -19,7 +19,7 @@
                <menus>
                   <Menu fx:id="gestionEtud" mnemonicParsing="false" text="Gestion étudiant">
                      <graphic>
-                        <ImageView fitWidth="16" fitHeight="16">
+                        <ImageView fitHeight="16" fitWidth="16">
                            <image>
                               <Image url="@../images/graduation-cap.png" />
                            </image>
@@ -32,7 +32,7 @@
                   </Menu>
                   <Menu fx:id="gestionSection" mnemonicParsing="false" text="Gestion section">
                      <graphic>
-                        <ImageView fitWidth="16" fitHeight="16">
+                        <ImageView fitHeight="16" fitWidth="16">
                            <image>
                               <Image url="@../images/users-alt.png" />
                            </image>
@@ -45,7 +45,7 @@
                   </Menu>
                   <Menu fx:id="gestionCours" mnemonicParsing="false" text="Gestion cours">
                      <graphic>
-                        <ImageView fitWidth="16" fitHeight="16">
+                        <ImageView fitHeight="16" fitWidth="16">
                            <image>
                               <Image url="@../images/book-alt.png" />
                            </image>
@@ -58,7 +58,7 @@
                   </Menu>
                   <Menu fx:id="bAutres" mnemonicParsing="false" text="Autres">
                      <graphic>
-                        <ImageView fitWidth="16" fitHeight="16">
+                        <ImageView fitHeight="16" fitWidth="16">
                            <image>
                               <Image url="@../images/info.png" />
                            </image>
@@ -74,6 +74,7 @@
          </children>
       </VBox>
       <QuadCurve controlX="-18.05954933166504" controlY="-94.0" endX="683.0" endY="178.0" fill="#006716" layoutX="50.0" layoutY="300.0" startX="-328.0" startY="178.00003051757812" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <QuadCurve controlX="994.666748046875" controlY="-136.66668701171875" endX="683.0" endY="178.0" fill="#006716" layoutX="60.0" layoutY="310.0" startX="340.0000305175781" startY="118.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
       <Label fx:id="bienvenue" alignment="TOP_CENTER" layoutY="172.0" prefHeight="40.0" prefWidth="729.0" text="BIENVENUE" textFill="#024010">
          <font>
             <Font name="Franklin Gothic Medium" size="40.0" />

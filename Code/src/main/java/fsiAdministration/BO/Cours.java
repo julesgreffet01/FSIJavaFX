@@ -5,12 +5,16 @@ public class Cours {
     private String lib;
     private String desc;
     private int idSection;
+    private int idprofesseur;
+    private int VolHoraire;
 
-    public Cours(int id, String lib, String desc, int idSection) {
+    public Cours(int id, String lib, String desc, int idSection, int idprofesseur, int volHoraire) {
         this.id = id;
         this.lib = lib;
         this.desc = desc;
         this.idSection = idSection;
+        this.idprofesseur = idprofesseur;
+        this.VolHoraire = volHoraire;
     }
 
     public int getId() {
@@ -43,5 +47,21 @@ public class Cours {
 
     public void setIdSection(int idSection) {
         this.idSection = idSection;
+    }
+
+    public int getIdprofesseur() {
+        return idprofesseur;
+    }
+
+    public void setIdprofesseur(int idprofesseur) {
+        this.idprofesseur = idprofesseur;
+    }
+
+    public int getVolHoraire() {
+        return VolHoraire;
+    }
+
+    public void setVolHoraire(int volHoraire) {
+        VolHoraire = volHoraire;
     }
 }

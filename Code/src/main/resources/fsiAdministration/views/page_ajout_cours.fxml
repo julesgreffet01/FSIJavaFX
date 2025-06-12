@@ -79,7 +79,7 @@
       </font>
    </Label>
 
-   <HBox fx:id="hbNomEtud" alignment="CENTER_LEFT" layoutY="108.0" prefHeight="44.0" prefWidth="710.0" spacing="10.0">
+   <HBox fx:id="hbNomEtud" alignment="CENTER_LEFT" layoutY="95.0" prefHeight="44.0" prefWidth="710.0" spacing="10.0">
       <children>
          <Label alignment="CENTER" prefHeight="17.0" prefWidth="165.0" text="Libelle cours" textFill="#015914">
             <font>
@@ -139,5 +139,15 @@
          </children>
    </Pane>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#01a321" height="5.0" layoutX="101.0" layoutY="77.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="508.0" />
+      <HBox fx:id="hbNomEtud2" alignment="CENTER_LEFT" layoutY="139.0" prefHeight="44.0" prefWidth="710.0" spacing="10.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="165.0" text="Volume Cours" textFill="#015914">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfVoluCours" prefHeight="26.0" prefWidth="375.0" />
+         </children>
+      </HBox>
    </children>
 </Pane>

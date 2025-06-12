@@ -25,7 +25,7 @@ import java.util.ResourceBundle;
 public class AjouterCoursController extends MenuController implements Initializable {
 
     @FXML
-    private TextField tfLibCours, tfDescCours;
+    private TextField tfLibCours, tfDescCours,tfVoluCours;
 
     @FXML
     private Button bRetour, bEnregistrer, bEffacer;
@@ -84,10 +84,12 @@ public class AjouterCoursController extends MenuController implements Initializa
     public void bEnregistrerClick(ActionEvent event) {
         String lib = tfLibCours.getText();
         String desc = tfDescCours.getText();
+        String vol = tfVoluCours.getText();
         Section selected = lvSectionCours.getSelectionModel().getSelectedItem();
         if(lib != null && desc != null && !lib.trim().isEmpty() && !desc.trim().isEmpty() && selected != null) {
             int idSection = selected.getIdSection();
-            Cours newCours = new Cours(0, lib, desc, idSection);
+            int volumeHoraire = Integer.parseInt(vol);
+            Cours newCours = new Cours(0, lib, desc, idSection,0,volumeHoraire);
             CoursDAO coursDAO = new CoursDAO();
             boolean controle = coursDAO.create(newCours);
             if(controle) {

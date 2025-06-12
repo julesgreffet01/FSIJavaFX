@@ -39,6 +39,9 @@ public class ListeCoursController extends MenuController implements Initializabl
     private TableColumn<Cours, Void> tcSupp;
 
     @FXML
+    private TableColumn<Cours, String> tcVolume;
+
+    @FXML
     private Button bRetour;
 
     @Override
@@ -46,6 +49,7 @@ public class ListeCoursController extends MenuController implements Initializabl
 
         tcLib.setCellValueFactory(new PropertyValueFactory<>("lib"));
         tcDesc.setCellValueFactory(new PropertyValueFactory<>("desc"));
+        tcVolume.setCellValueFactory(new PropertyValueFactory<>("VolHoraire"));
         ObservableList<Cours> data = getCoursList();
         tvCours.setItems(data);
         btnModif();

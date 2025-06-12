@@ -78,10 +78,11 @@
       </VBox>
       <TableView fx:id="tvCours" layoutY="50.0" prefHeight="292.0" prefWidth="804.0">
          <columns>
-            <TableColumn fx:id="tcLib" prefWidth="200.0" text="Libelle" />
-            <TableColumn fx:id="tcDesc" prefWidth="374.0" text="Description" />
-            <TableColumn fx:id="tcModif" prefWidth="110.0" text="Modifier" />
-            <TableColumn fx:id="tcSupp" prefWidth="110.0" text="Supprimer" />
+            <TableColumn fx:id="tcLib" prefWidth="179.3333078622818" text="Libelle" />
+            <TableColumn fx:id="tcDesc" prefWidth="270.0" text="Description" />
+            <TableColumn fx:id="tcVolume" prefWidth="66.66656494140625" text="Volume" />
+            <TableColumn fx:id="tcModif" prefWidth="135.3333740234375" text="Modifier" />
+            <TableColumn fx:id="tcSupp" prefWidth="173.333251953125" text="Supprimer" />
          </columns>
       </TableView>
 

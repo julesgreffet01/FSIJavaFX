@@ -51,7 +51,9 @@ public class VoirPlusSectionController extends MenuController implements Initial
         tcNom.setCellValueFactory(new PropertyValueFactory<>("nomEtudiant"));
         tcPre.setCellValueFactory(new PropertyValueFactory<>("prenomEtudiant"));
         tvEtu.setItems(getUserList());
-
+        tvEtu.getSortOrder().add(tcPre);
+        tcPre.setSortType(TableColumn.SortType.ASCENDING);
+        tvEtu.sort();
         tcLib.setCellValueFactory(new PropertyValueFactory<>("lib"));
         tvCours.setItems(getCoursList());
     }

@@ -64,7 +64,7 @@ public class ModifierCoursController extends MenuController implements Initializ
         Section selected = lvSectionCours.getSelectionModel().getSelectedItem();
         if(lib != null && desc != null && !lib.trim().isEmpty() && !desc.trim().isEmpty() && selected != null) {
             int idSection = selected.getIdSection();
-            Cours newCours = new Cours(idCours, lib, desc, idSection);
+            Cours newCours = new Cours(idCours, lib, desc, idSection,0,0);
             System.out.println(idCours);
 
             CoursDAO coursDAO = new CoursDAO();

@@ -18,18 +18,23 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ConnexionController implements Initializable {
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
-
     @FXML
     private TextField tfLogin;
     @FXML
     private PasswordField tfMDP;
     @FXML
     private Button bConnexion;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        UtilisateurDAO userDAO = new UtilisateurDAO();
+        Utilisateur dernierUser = userDAO.getDernierUtilisateurConnecte();
+        if (dernierUser != null) {
+            tfLogin.setText(dernierUser.getLoginUtilisateur());
+        }
+    }
+
+
 
     @FXML
     public void bConnexionClick(ActionEvent event) {

@@ -1,15 +1,19 @@
 package fsiAdministration.BO;
 
+import java.sql.Timestamp;
+
 public class Utilisateur {
 
     private int idUtilisateur;
     private String loginUtilisateur;
     private String  mdpUtilisateur;
+    private Timestamp dateDerniereConnexion;
 
-    public Utilisateur( int idUtilisateur,String mdpUtilisateur, String loginUtilisateur) {
-        this.mdpUtilisateur = mdpUtilisateur;
-        this.loginUtilisateur = loginUtilisateur;
+    public Utilisateur(int idUtilisateur, String loginUtilisateur, String mdpUtilisateur, Timestamp dateDerniereConnexion) {
         this.idUtilisateur = idUtilisateur;
+        this.loginUtilisateur = loginUtilisateur;
+        this.mdpUtilisateur = mdpUtilisateur;
+        this.dateDerniereConnexion = dateDerniereConnexion;
     }
 
     public int getIdUtilisateur() {
@@ -34,6 +38,14 @@ public class Utilisateur {
 
     public void setLoginUtilisateur(String loginUtilisateur) {
         this.loginUtilisateur = loginUtilisateur;
+    }
+
+    public Timestamp getDateDerniereConnexion() {
+        return dateDerniereConnexion;
+    }
+
+    public void setDateDerniereConnexion(Timestamp dateDerniereConnexion) {
+        this.dateDerniereConnexion = dateDerniereConnexion;
     }
 
     public Utilisateur() {
